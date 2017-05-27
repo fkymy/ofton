@@ -9,23 +9,23 @@
 |bundler| 1.10.3 |
 |node   | v7.0.0 |
 
-##開発環境構築
+## 開発環境構築
 
-###Xcode,Command Line Toolsのインストール
+### Xcode,Command Line Toolsのインストール
 
 下記コマンドを実行
 ```
 xcode-select --install
 ```
 
-###Homebrewのインストール
+### Homebrewのインストール
 
 下記コマンドを実行
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-###rbenvのインストール
+### rbenvのインストール
 
 下記コマンドを実行
 ```
@@ -38,7 +38,7 @@ brew install rbenv-gem-rehash
 source ~/.bash_profile
 ```
 
-###ruby2.2.0のインストール
+### ruby2.2.0のインストール
 下記コマンドを実行
 ```
 rbenv install 2.3.1
@@ -47,26 +47,22 @@ rbenv global 2.3.1
 ```
 or local...
 
-###bundlerのインストール
+### bundlerのインストール
 下記コマンドを実行
 ```
-gem install bundler --version=1.10.3
+gem install bundler --version=1.15.0
 ```
 
-###railsのインストール
+### railsのインストール
 下記コマンドを実行
 ```
 gem install rails
+
+bin/bundle install --path vendor/bundle --jobs 4
 ```
 
-###mysqlのインストール
-下記コマンドを実行
-```
-brew install mysql
-ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-mysql.server start
-```
+### sqlite3のインストール
+https://www.tutorialspoint.com/sqlite/sqlite_installation.htm
 
 ### npmのインストール
 
@@ -85,7 +81,6 @@ npm install
 
 ### 環境変数設定
 `.env.sample`をコピーして`.env`を作成
-各値を個人の開発環境にあわせて修正下さい。
 
 参考) http://qiita.com/closer/items/f8d8ba00ae86d7051764
 
