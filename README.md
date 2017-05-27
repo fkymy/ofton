@@ -42,7 +42,7 @@ source ~/.bash_profile
 下記コマンドを実行
 ```
 rbenv install 2.3.1
-rbenv rehash
+rbenv rehash #今は必要ないらしい
 rbenv global 2.3.1
 ```
 or local...
@@ -57,8 +57,6 @@ gem install bundler --version=1.15.0
 下記コマンドを実行
 ```
 gem install rails
-
-bin/bundle install --path vendor/bundle --jobs 4
 ```
 
 ### sqlite3のインストール
@@ -74,6 +72,11 @@ ndenv local v7.0.0
 npm install
 ```
 
+Get on Rails
+```
+bin/bundle install --path vendor/bundle --jobs 4
+bin/rails server
+```
 
 ## 初期設定
 ### DB作成
