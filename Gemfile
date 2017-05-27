@@ -33,11 +33,30 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'timecop'
+  gem 'faker'
+
+  #gem 'capybara'
+  #gem 'capybara-webkit'
+  #gem 'poltergeist'
+end
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Debug
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  # gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
 
@@ -45,9 +64,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # Detect N+1 query
+  #gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -55,3 +73,51 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # .env 環境変数設定用
 gem 'dotenv-rails'
+
+# seed-fu master-data
+#gem 'seed-fu'
+
+# paging
+#gem 'kaminari'
+
+# redis
+#gem 'redis'
+#gem 'redis-rails'
+#gem 'redis-objects'
+
+# Enum
+#gem 'inum'
+
+# bootstrap
+#gem 'twitter-bootstrap-rails'
+
+# font awesome
+#gem 'font-awesome-rails'
+
+# image upload
+#gem 'carrierwave'
+#gem 'mini_magick'
+#gem 'fog'
+
+# Login Management
+#gem 'devise'
+#gem 'devise-async'
+#gem 'omniauth-facebook'
+
+
+# 非同期
+#gem 'sidekiq'
+#gem 'sinatra', require: false
+#gem 'sidekiq-history'
+#gem 'sidekiq-statistic'
+#gem 'sidekiq-failures'
+# 分散ロック
+#gem 'sidekiq-unique-jobs'
+
+# Decorator
+#gem 'draper'
+# パンくずリスト
+#gem "gretel"
+
+# DOM解析
+#gem 'nokogiri'
