@@ -13,14 +13,13 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 
 group :test do
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'timecop'
   gem 'faker'
   gem 'poltergeist'
-
-  gem 'capybara'
 end
 
 group :development, :test do
@@ -37,6 +36,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-commands-rspec'
+  gem 'guard-rspec'
   gem 'bullet'
 end
 
