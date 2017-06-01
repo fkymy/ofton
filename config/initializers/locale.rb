@@ -2,7 +2,7 @@
 I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
 # Whitelist locale available for the application
-I18n.available_lacales = [:en, :ja]
+I18n.available_locales = [:en, :ja]
 
 # Set default locale
 I18n.default_locale = :ja
