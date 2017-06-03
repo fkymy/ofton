@@ -3,6 +3,10 @@
 
 ## Ideas
 
+### doctrine
+
+http://rubyonrails.org/doctrine/
+
 ### ruby-style-guide
 
 https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md
@@ -18,7 +22,7 @@ https://github.com/discourse/discourse
 https://github.com/diaspora/diaspora
 
 
-## Assumptions(Opinionated)
+## Conventions(Opinionated)
 [wip]
 v1
 
