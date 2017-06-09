@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :entry, counter_cache: true
+  belongs_to :entry
 end
