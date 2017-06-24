@@ -1,0 +1,138 @@
+//
+// # Foundation
+//
+
+// -- Base --
+@import "lib/normalize";
+@import "lib/suitcss-base";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+// -- Variables --
+
+// Color
+$color-primary: #FB9D6D;
+$color-secondary: #F7FAE9;
+
+// Size
+$height-header: 50px;
+
+// Radius
+$radius-circle: 50%;
+$radius-pill: 99em;
+$radius-table: 4px;
+
+// Screens
+
+
+// -- Mixins --
+
+
+//
+// # Layouts
+//
+[id="container"] {
+  height: 100%;
+  width: 100%;
+}
+
+[id="flex-wrapper"] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+[id="flex-wrapper"] > * {
+  flex: 1 100%;
+}
+
+[id="header"] {
+  background-color: $color-primary;
+}
+
+[id="main"] {
+  border: 1px solid black;
+  height: auto;
+}
+
+[id="sidebar"] {
+  border: 1px solid black;
+}
+
+[id="sidebar-2"] {
+  border: 1px solid black;
+}
+
+[id="footer"] {
+  background: gray;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media all and (min-width: 768px) {
+  /* invert order of first sidebar and main
+   * and tell the main element to take twice as much width
+   * as the sidebars
+   */
+  [id="flex-wrapper"] {
+    flex-direction: row;
+  }
+  [id="main"] {
+    flex: 3 0px;
+  }
+  .aside {
+    flex: 1 auto;
+  }
+
+  [id="sidebar"] { order: 1; }
+  [id="main"] { order: 2; }
+  [id="sidebar-2"] { order: 3; }
+  [id="footer"] { order: 4; }
+}
+
+//
+// # Objects
+//
+
+// -- Components --
+.app-logo {
+  font-weight: bold;
+  font-size: 32px;
+  font-family: Monaco, monospace;
+  color: white;
+}
+.app-logo a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.app-logo span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar {
+  min-height: 2rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+}
+
+.navbar-item {
+  height: 50px;
+}
+
+.navbar-center {
+  text-align: center;
+}
+
+.alpha {
+
+}

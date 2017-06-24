@@ -46,7 +46,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # [custom] Do not precompile in development environment.
-  config.assets.compress = false
+  # config.assets.compress = false
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
