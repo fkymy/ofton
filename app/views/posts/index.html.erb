@@ -1,7 +1,31 @@
-<h1>Posts#index</h1>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.author %><p><%= post.body %><p></li>
-  <% end %>
-</ul>
+<div class="module">
+  <div class="module__body">
+    <div class="entries">
+      <ul class="entries__list">
+        <% @posts.each do |post| %>
+          <li class="entries__item">
+            <div class="media">
+              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__bd">
+                <%= link_to post_path(post), class: "post-content" do %>
+                  <div>
+                    <div class="post-content__author">
+                      <span><%= post.author %></span>
+                    </div>
+                    <div class="post-content__body">
+                      <p><%= post.body %></p>
+                    </div>
+                    <div class="post-content__comments-count">
+                      <span>コメント <%= post.comments_count %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 <!-- pagination -->

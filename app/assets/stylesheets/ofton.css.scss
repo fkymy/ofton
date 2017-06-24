@@ -17,13 +17,20 @@ body {
   font-family: Lucida Grande,Hiragino Kaku Gothic ProN,'ヒラギノ角ゴ ProN W3',Meiryo,'メイリオ',sans-serif;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 // -- Variables --
 
 // Color
 $color-primary: #fb9d6d;
 $color-secondary: #f7fae9;
 
-$color-footer-links-border: #eee;
+$color-main-border: #ccd6dd;
+$color-footer-border: #eee;
+
 
 // Size
 $height-header: 50px;
@@ -56,6 +63,8 @@ $screen-m: 768px;
 
 // Mobile first
 [id="container"] {
+  // background-color: #e6ecf0;
+  background-color: $color-secondary;
   height: 100%;
   width: 100%;
 }
@@ -79,21 +88,22 @@ $screen-m: 768px;
 }
 
 [id="main"] {
-  border: 1px solid black;
   height: auto;
+  background-color: #fff;
 }
 
 .aside {
+  background-color: $color-secondary;
   min-width: 300px;
   min-height: 250px;
 }
 
 [id="sidebar"] {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 [id="sidebar-2"] {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 [id="footer"] {
@@ -155,10 +165,10 @@ $screen-m: 768px;
   font-family: Monaco, monospace;
   color: white;
 }
-.app-logo a {
-  color: inherit;
-  text-decoration: inherit;
-}
+// .app-logo a {
+//   color: inherit;
+//   text-decoration: inherit;
+// }
 .app-logo span {
   display: inline-block;
   vertical-align: middle;
@@ -187,14 +197,13 @@ $screen-m: 768px;
 }
 
 .alpha__lede-text {
-  color: #999;
+  color: #666;
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
-
-
+// TODO
 .sidebar-ad-wrapper {
   width: auto;
 }
@@ -204,6 +213,56 @@ $screen-m: 768px;
 
 .sidebar-ad__image {
   margin: 0 auto;
+}
+
+// Index
+.module {
+
+}
+.module__body {
+
+}
+
+.entries {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.entries__list {
+  border-top: 1px solid $color-main-border;
+}
+
+.entries__item {
+  position: relative;
+  border-bottom: 1px solid $color-main-border;
+  @include screen-m {
+    // border-right: 1px solid $color-main-border;
+    // border-left: 1px solid $color-main-border;
+  }
+}
+
+.post-content {
+  cursor: default;
+}
+
+.post-content__author {
+  color: $color-primary;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.post-content__body {
+
+}
+
+.post-content__comments-count {
+  position: relative;
+  margin-top: 10px;
+  color: $color-primary;
+  font-size: 12px;
+  span {
+    float: right;
+  }
 }
 
 .sns-box-wrapper {
@@ -242,8 +301,8 @@ $screen-m: 768px;
   @include screen-m {
     margin-top: 0;
     display: block;
-    border-top: 1px solid $color-footer-links-border;
-    border-bottom: 1px solid $color-footer-links-border;
+    border-top: 1px solid $color-footer-border;
+    border-bottom: 1px solid $color-footer-border;
     margin-top: 20px;
     padding: 15px 20px;
     text-align: center;
@@ -254,14 +313,14 @@ $screen-m: 768px;
 .footer-links__list {
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid $color-footer-links-border;
+  border-top: 1px solid $color-footer-border;
   > li {
     box-sizing: border-box;
     flex: 0 0 50%;
-    border-bottom: 1px solid $color-footer-links-border;
+    border-bottom: 1px solid $color-footer-border;
     font-size: px2rem(12px);
     &:nth-child(odd) {
-      border-right: 1px solid $color-footer-links-border;
+      border-right: 1px solid $color-footer-border;
     }
     > a {
       color: inherit;
@@ -280,7 +339,7 @@ $screen-m: 768px;
       border-bottom: 0;
       margin-right: 8px;
       padding-right: 8px;
-      border-right: 1px solid $color-footer-links-border;
+      border-right: 1px solid $color-footer-border;
       &:last-child {
         border-right: none;
       }
@@ -302,4 +361,24 @@ $screen-m: 768px;
   padding-bottom: 20px;
   text-align: center;
   font-family: Helvetica, sans-serif;
+}
+
+// -- Objects --
+
+// Media
+// https://css-tricks.com/media-object-bunch-ways/
+.media {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.media__img {
+  width: 35px;
+  height: 35px;
+  margin: 0 1rem 0 0;
+}
+.media__bd {
+  overflow: hidden;
+  flex: 1 auto;
+  margin: 0 1rem 0 0;
 }
