@@ -65,7 +65,7 @@ $screen-m: 768px;
 [id="container"] {
   // background-color: #e6ecf0;
   background-color: $color-secondary;
-  height: 100%;
+  // height: 100%;
   width: 100%;
 }
 
@@ -109,6 +109,7 @@ $screen-m: 768px;
 [id="footer"] {
   // position: fixed;
   // bottom: 0;
+  background-color: #fff;
   width: 100%;
 }
 
@@ -223,53 +224,82 @@ $screen-m: 768px;
 
 }
 
-// floating action
-// using flex for now, but this may be simpler:
-// https://codepen.io/simoberny/pen/pJZJQY
-.floating-container {
-  z-index: 9999; // not too elegant
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  background-color: transparent;
-}
-
-.floating-action-bar {
-  display: flex;
-  align-items: stretch;
-  flex-basis: auto;
-  flex-direction: column;
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  background-color: transparent;
-}
-
-.floating-action-bar__item {
-  border-radius: $radius-circle;
-  box-shadow: 1px 1px 4px rgba(101,119,134,.75);
-  height: 4rem;
-  padding: 0;
+#floationg-container {
+  position:fixed;
   width: 4rem;
-  align-self: flex-end;
-  justify-content: center;
+  height: 4rem;
   bottom: 1.3125rem;
-  position: relative;
   right: 1.3125rem;
+}
+
+.floating-action__item {
+  z-index: 9999;
+  width: 4rem;
+  height: 4rem;
+  border-radius: $radius-circle;
   background: $color-primary;
+  position: fixed;
+  bottom: 1.3125rem;
+  right: 1.3125rem;
+  box-shadow: 1px 1px 4px rgba(101,119,134,.75);
   color: white;
 
   span {
-    margin: 0 auto;
     padding-top: 14px;
     padding-left: 16px;
     display: inline-block;
     vertical-align: middle;
   }
 }
+
+// floating action
+// using flex for now, but this may be simpler:
+// https://codepen.io/simoberny/pen/pJZJQY
+// .floating-container {
+//   // z-index: 9999; // not too elegant
+//   bottom: 0;
+//   left: 0;
+//   pointer-events: none;
+//   position: fixed;
+//   right: 0;
+//   background-color: transparent;
+// }
+//
+// .floating-action-bar {
+//   display: flex;
+//   align-items: stretch;
+//   flex-basis: auto;
+//   flex-direction: column;
+//   flex-shrink: 0;
+//   margin: 0;
+//   padding: 0;
+//   position: relative;
+//   background-color: transparent;
+// }
+//
+// .floating-action-bar__item {
+//   z-index: 9999; // not too elegant
+//   border-radius: $radius-circle;
+//   box-shadow: 1px 1px 4px rgba(101,119,134,.75);
+//   height: 4rem;
+//   padding: 0;
+//   width: 4rem;
+//   align-self: flex-end;
+//   justify-content: center;
+//   bottom: 1.3125rem;
+//   position: relative;
+//   right: 1.3125rem;
+//   background: $color-primary;
+//   color: white;
+//
+//   span {
+//     margin: 0 auto;
+//     padding-top: 14px;
+//     padding-left: 16px;
+//     display: inline-block;
+//     vertical-align: middle;
+//   }
+// }
 
 .entries {
   margin-top: 15px;
@@ -290,7 +320,6 @@ $screen-m: 768px;
 }
 
 .post-content {
-  z-index: -1;
   cursor: default;
 }
 
