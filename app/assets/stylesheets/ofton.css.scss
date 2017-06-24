@@ -6,21 +6,28 @@
 @import "lib/normalize";
 @import "lib/suitcss-base";
 
+@import "font-awesome";
+
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-size: 14px;
+  font-family: Lucida Grande,Hiragino Kaku Gothic ProN,'ヒラギノ角ゴ ProN W3',Meiryo,'メイリオ',sans-serif;
 }
 
 // -- Variables --
 
 // Color
-$color-primary: #FB9D6D;
-$color-secondary: #F7FAE9;
+$color-primary: #fb9d6d;
+$color-secondary: #f7fae9;
+
+$color-footer-links-border: #eee;
 
 // Size
 $height-header: 50px;
+$width-container: 940px;
 
 // Radius
 $radius-circle: 50%;
@@ -28,14 +35,26 @@ $radius-pill: 99em;
 $radius-table: 4px;
 
 // Screens
-
+$screen-m: 768px;
 
 // -- Mixins --
+@mixin screen-m {
+  @media (min-width: $screen-m + 1) {
+    @content;
+  }
+}
 
+@mixin centering($width: $width-container) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $width;
+}
 
 //
 // # Layouts
 //
+
+// Mobile first
 [id="container"] {
   height: 100%;
   width: 100%;
@@ -64,6 +83,11 @@ $radius-table: 4px;
   height: auto;
 }
 
+.aside {
+  min-width: 300px;
+  min-height: 250px;
+}
+
 [id="sidebar"] {
   border: 1px solid black;
 }
@@ -73,13 +97,33 @@ $radius-table: 4px;
 }
 
 [id="footer"] {
-  background: gray;
-  position: fixed;
-  bottom: 0;
+  // position: fixed;
+  // bottom: 0;
   width: 100%;
 }
 
-@media all and (min-width: 768px) {
+// Medium screens
+@media all and (min-width: $screen-m) {
+  .aside {
+    flex: 1;
+  }
+
+  [id="main"] {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  [id="sidebar"] {
+    margin: 0 auto;
+  }
+
+  [id="sidebar-2"] {
+    margin: 0 auto;
+  }
+}
+
+// Large screens
+@media all and (min-width: 1200px) {
   /* invert order of first sidebar and main
    * and tell the main element to take twice as much width
    * as the sidebars
@@ -88,10 +132,10 @@ $radius-table: 4px;
     flex-direction: row;
   }
   [id="main"] {
-    flex: 3 0px;
+    flex: 2;
   }
   .aside {
-    flex: 1 auto;
+    flex: 1;
   }
 
   [id="sidebar"] { order: 1; }
@@ -134,5 +178,128 @@ $radius-table: 4px;
 }
 
 .alpha {
+  background-color: $color-secondary;
+  padding: 15px 0;
+}
 
+.alpha__lede {
+  background-color: white;
+}
+
+.alpha__lede-text {
+  color: #999;
+  padding: 10px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+.sidebar-ad-wrapper {
+  width: auto;
+}
+
+.sidebar-ad__imagebox {
+}
+
+.sidebar-ad__image {
+  margin: 0 auto;
+}
+
+.sns-box-wrapper {
+  background-color: #f3f3f3;
+  padding: 30px 15px 35px;
+  text-align: center;
+  p {
+    font-weight: bold;
+  }
+}
+.sns-box__list {
+  margin: 20px auto 0;
+  zoom: 1;
+}
+.sns-box__item {
+  // width: auto; what is this even...
+}
+.sns-box__item--twitter {
+  height: 49px;
+  width: 120px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #55acee;
+  border-bottom: #5698cb solid 3px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: inherit;
+}
+.sns-box__item--twitter span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer-links {
+  color: #666;
+  @include screen-m {
+    margin-top: 0;
+    display: block;
+    border-top: 1px solid $color-footer-links-border;
+    border-bottom: 1px solid $color-footer-links-border;
+    margin-top: 20px;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: px2rem(13px);
+    @include centering;
+  }
+}
+.footer-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $color-footer-links-border;
+  > li {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    border-bottom: 1px solid $color-footer-links-border;
+    font-size: px2rem(12px);
+    &:nth-child(odd) {
+      border-right: 1px solid $color-footer-links-border;
+    }
+    > a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+  }
+  @include screen-m {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border-top: 0;
+    text-align: center;
+    > li {
+      flex: 1 0 auto;
+      border-bottom: 0;
+      margin-right: 8px;
+      padding-right: 8px;
+      border-right: 1px solid $color-footer-links-border;
+      &:last-child {
+        border-right: none;
+      }
+      a {
+        padding: 0;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+          opacity: 0.75px;
+        }
+      }
+    }
+  }
+}
+
+.footer__contentinfo {
+  color: #666;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
 }

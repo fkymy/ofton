@@ -28,12 +28,16 @@
     <div class="alpha">
       <div class="alpha__lede">
         <p class="alpha__lede-text">
-          Alpha Lede
+          投稿の内容はかぶってもおｋです！<br>
+          体験談や今の寂しさなど、気軽に投稿しましょう!
         </p>
       </div>
     </div>
     <%= yield %>
   </main>
+  <!-- <div class="entry&#45;action"> -->
+  <!--   <a class="button"><span></span></a> -->
+  <!-- </div> -->
   <aside class="aside" id="sidebar">
     Aside 1
   </aside>
@@ -46,17 +50,24 @@
     </div>
   </aside>
   <div id="footer">
-    <div class="footer-links">
-      <div class="footer-links__twitter">
-        twitter
+      <!-- if mobile -->
+      <div class="sns-box-wrapper">
+        <p>oftonをフォローしよう！</p>
+        <ul class="sns-box__list">
+          <li class="sns-box__item">
+            <a class="sns-box__item--twitter" href="//twitter.com/chacha_menhera" target="_blank">
+              <span class="fa fa-twitter fa-3x"></span>
+            </a>
+          </li>
+        </ul>
       </div>
+    <div class="footer-links">
       <ul class="footer-links__list">
-        <li><%= link_to 'Oftonとは', root_path %></li>
+        <li><%= link_to 'Oftonについて', root_path %></li>
         <li><%= link_to 'お問い合わせ', root_path %></li>
       </ul>
     </div>
-    Footer
-    <footer role='contentinfo' class="contentinfo">&copy; 2017 ofton project.</footer>
+    <footer role='contentinfo' class="footer__contentinfo">&copy; 2017 ofton project.</footer>
   </div>
   </div>
 </div>
