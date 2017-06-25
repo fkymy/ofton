@@ -51,6 +51,12 @@ $screen-m: 768px;
   }
 }
 
+@mixin mobile {
+  @media (max-width: $screen-m) {
+    @content
+  }
+}
+
 @mixin centering($width: $width-container) {
   margin-left: auto;
   margin-right: auto;
@@ -301,13 +307,16 @@ $screen-m: 768px;
 // }
 
 .entries {
-  margin-top: 15px;
   margin-bottom: 30px;
+}
+
+.entries__form {
+  background-color: #fff;
+  padding: 10px;
 }
 
 .entries__list {
   background-color: #fff;
-  border-top: 1px solid $color-main-border;
 }
 
 .entries__item {
@@ -460,3 +469,274 @@ $screen-m: 768px;
   flex: 1 auto;
   margin: 0 1rem 0 0;
 }
+
+
+// Form
+// https://github.com/yahoo/pure/blob/master/src/forms/css/forms.css
+
+.form {
+
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="date"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="datetime"],
+.form input[type="datetime-local"],
+.form input[type="week"],
+.form input[type="number"],
+.form input[type="search"],
+.form input[type="tel"],
+.form input[type="color"],
+.form select,
+.form textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.form textarea {
+  resize: none;
+}
+
+// Chrome needs additional room for color to display
+.form input[type="color"] {
+  padding: 0.2em 0.5em;
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus,
+.form input[type="url"]:focus,
+.form input[type="date"]:focus,
+.form input[type="month"]:focus,
+.form input[type="time"]:focus,
+.form input[type="datetime"]:focus,
+.form input[type="datetime-local"]:focus,
+.form input[type="week"]:focus,
+.form input[type="number"]:focus,
+.form input[type="search"]:focus,
+.form input[type="tel"]:focus,
+.form input[type="color"]:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: 0;
+  border-color: $color-primary;
+}
+
+.form input[type="file"]:focus,
+.form input[type="radio"]:focus,
+.form input[type="checkbox"]:focus {
+  outline: thin solid $color-primary;
+  outline: 1px auto $color-primary;
+}
+.form .pure-checkbox,
+.form .pure-radio {
+  margin: 0.5em 0;
+  display: block;
+}
+
+.form input[type="text"][disabled],
+.form input[type="password"][disabled],
+.form input[type="email"][disabled],
+.form input[type="url"][disabled],
+.form input[type="date"][disabled],
+.form input[type="month"][disabled],
+.form input[type="time"][disabled],
+.form input[type="datetime"][disabled],
+.form input[type="datetime-local"][disabled],
+.form input[type="week"][disabled],
+.form input[type="number"][disabled],
+.form input[type="search"][disabled],
+.form input[type="tel"][disabled],
+.form input[type="color"][disabled],
+.form select[disabled],
+.form textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+
+.form input[readonly],
+.form select[readonly],
+.form textarea[readonly] {
+  background-color: #eee; /* menu hover bg color */
+  color: #777; /* menu text color */
+  border-color: #ccc;
+}
+
+.form input:focus:invalid,
+.form textarea:focus:invalid,
+.form select:focus:invalid {
+  color: #b94a48;
+  border-color: #e9322d;
+}
+.form input[type="file"]:focus:invalid:focus,
+.form input[type="radio"]:focus:invalid:focus,
+.form input[type="checkbox"]:focus:invalid:focus {
+  outline-color: #e9322d;
+}
+.form select {
+  /* Normalizes the height; padding is not sufficient. */
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+.form select[multiple] {
+  height: auto;
+}
+.form label {
+  margin: 0.5em 0 0.2em;
+}
+.form fieldset {
+  margin: 0;
+  padding: 0.35em 0 0.75em;
+  border: 0;
+}
+.form legend {
+  display: block;
+  width: 100%;
+  padding: 0.3em 0;
+  margin-bottom: 0.3em;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.form .input--1 {
+  width: 100%;
+}
+
+.form .pure-help-inline,
+.form-message-inline {
+  display: inline-block;
+  padding-left: 0.3em;
+  color: #666;
+  vertical-align: middle;
+  font-size: 0.875em;
+}
+
+/* Block help for forms */
+.form-message {
+  display: block;
+  color: #666;
+  font-size: 0.875em;
+}
+
+.form-stacked {
+}
+
+.form-stacked input[type="text"],
+.form-stacked input[type="password"],
+.form-stacked input[type="email"],
+.form-stacked input[type="url"],
+.form-stacked input[type="date"],
+.form-stacked input[type="month"],
+.form-stacked input[type="time"],
+.form-stacked input[type="datetime"],
+.form-stacked input[type="datetime-local"],
+.form-stacked input[type="week"],
+.form-stacked input[type="number"],
+.form-stacked input[type="search"],
+.form-stacked input[type="tel"],
+.form-stacked input[type="color"],
+.form-stacked input[type="file"],
+.form-stacked select,
+.form-stacked label,
+.form-stacked textarea {
+  display: block;
+  margin: 0.25em 0;
+}
+
+.form-section {
+
+}
+
+.form__item {
+  margin: 0.5em 0 1em;
+}
+
+.form__label {
+  color: #666;
+  margin-bottom: 0.2em;
+}
+
+.form__text-field {
+}
+
+.form__textarea {
+}
+
+.form__submit {
+}
+
+.entries__form {
+  padding-bottom: 50px;
+}
+.entries__form .form__textarea {
+  min-height: 350px; // TODO: check wtih m
+  height: 350px;
+  > textarea {
+    box-sizing: border-box;         /* For IE and modern versions of Chrome */
+    -moz-box-sizing: border-box;    /* For Firefox                          */
+    -webkit-box-sizing: border-box; /* For Safari                           */
+    height: 100%;
+  }
+}
+
+.entries__form .form__submit {
+  // if mobile, fix action to bottom
+  @include mobile {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3.5rem;
+    border-top: 1px solid $color-main-border;
+    padding: 0.4em 0.2em 0.4em 0.2em;
+
+    button {
+      margin-right: 0.2em;
+      padding: 0.7em 1.2em;
+      display: inline-block;
+      vertical-align: middle;
+      float: right;
+    }
+  }
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0.5em 1em;
+  color: #444; /* rgba not supported (IE 8) */
+  color: rgba(0, 0, 0, 0.80); /* rgba supported */
+  border: 1px solid #999;  /*IE 6/7/8*/
+  border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.btn--primary {
+  background-color: $color-primary;
+  color: white;
+}
+//
+// .btn-hover,
+// .btn:hover,
+// .btn:focus {
+//   /* csslint ignore:start */
+//   filter: alpha(opacity=90);
+//   /* csslint ignore:end */
+//   background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+// }
+
