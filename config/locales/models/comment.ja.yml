@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      comment: "コメント"
+    attributes:
+      comment:
+        author: "投稿者"
+        body: "本文"
+
