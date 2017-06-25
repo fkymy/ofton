@@ -319,7 +319,13 @@ $screen-m: 768px;
   background-color: #fff;
 }
 
+.entries__comments {
+  margin: 15px;
+  background-color: #fff;
+}
+
 .entries__item {
+  background-color: #fff;
   position: relative;
   border-bottom: 1px solid $color-main-border;
   @include screen-m {
@@ -350,6 +356,31 @@ $screen-m: 768px;
   span {
     float: right;
   }
+}
+
+.comments__list {
+  border: 1px solid $color-primary;
+  border-radius: 15px;
+  li {
+    border-bottom: 1px solid $color-main-border;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+}
+
+.comments__item {
+  padding-bottom: 0.5em;
+}
+
+.comment-content__author {
+  color: $color-primary;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.comment-content__body {
+
 }
 
 .sns-box-wrapper {
