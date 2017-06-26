@@ -651,7 +651,7 @@ $screen-m: 768px;
   width: 100%;
 }
 
-.form .pure-help-inline,
+.form .help-inline,
 .form-message-inline {
   display: inline-block;
   padding-left: 0.3em;
@@ -665,6 +665,10 @@ $screen-m: 768px;
   display: block;
   color: #666;
   font-size: 0.875em;
+}
+
+.form-message.danger {
+  color: red;
 }
 
 .form-stacked {

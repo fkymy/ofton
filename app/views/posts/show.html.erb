@@ -18,27 +18,40 @@
     </div>
   </div>
   <div class="entries__comments">
-    <ul class="comments__list">
-      <% @post.comments.each do |comment| %>
-        <li class="comments__item">
-          <div class="media">
-            <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
-            <div class="media__bd">
-              <div class="comment-content__author">
-                <span><%= comment.author %></span>
-              </div>
-              <div class="comment-content__body">
-                <p><%= comment.body %></p>
+    <% if @post.comments.any? %>
+      <ul class="comments__list">
+        <% @post.comments.each do |comment| %>
+          <li class="comments__item">
+            <div class="media">
+              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__bd">
+                <div class="comment-content__author">
+                  <span><%= comment.author %></span>
+                </div>
+                <div class="comment-content__body">
+                  <p><%= comment.body %></p>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <div class="comments__form">
       <div class="form">
-        <!-- TODO: add alerts -->
         <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
+          <%# <% if @comment.errors.any? %>
+          <%#   <div class="form-section">
+          <%#     <div class="form-message danger">
+          <%#       <%# <%= pluralize(@post.errors.count, "error") %>
+          <%#       <ul>
+          <%#         <% @comment.errors.full_messages.each do |msg| %>
+          <%#           <li><%= msg %></li>
+          <%#         <% end %>
+          <%#       </ul>
+          <%#     </div>
+          <%#   </div>
+          <%# <% end %>
           <div class="form-section">
             <div class="form__item">
               <div class="form__text-field">
