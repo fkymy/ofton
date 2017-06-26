@@ -1,2 +1,44 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<!-- <div class="floating&#45;container"> -->
+<!--   <div class="floating&#45;action&#45;bar"> -->
+<!--     <%= link_to new_post_path, class: "floating&#45;action&#45;bar__item" do %> -->
+<!--       <span class="fa fa&#45;pencil fa&#45;2x"></span> -->
+<!--     <% end %> -->
+<!--   </div> -->
+<!-- </div> -->
+<div id="floating-container">
+  <%= link_to new_post_path, class: "floating-action__item" do %>
+    <span class="fa fa-pencil fa-2x"></span>
+  <% end %>
+</div>
+
+<div class="module">
+  <div class="module__body">
+    <div class="entries">
+      <ul class="entries__list">
+        <% @posts.each do |post| %>
+          <li class="entries__item">
+            <div class="media">
+              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__bd">
+                <%= link_to post_path(post), class: "post-content" do %>
+                  <div>
+                    <div class="post-content__author">
+                      <span><%= post.author %></span>
+                    </div>
+                    <div class="post-content__body">
+                      <p><%= post.body %></p>
+                    </div>
+                    <div class="post-content__comments-count">
+                      <span>コメント <%= post.comments_count %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- pagination -->

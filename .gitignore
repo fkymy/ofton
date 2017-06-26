@@ -17,7 +17,6 @@ vendor/bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
 !/log/.keep
 !/tmp/.keep
 
@@ -30,3 +29,7 @@ vendor/bundle
 .DS_Store
 
 *.swp
+
+/tmp/*
+/public/assets/*
+

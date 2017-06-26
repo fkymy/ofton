@@ -1,2 +1,63 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="entries">
+  <div class="entries__item">
+    <div class="media">
+      <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+      <div class="media__bd">
+        <div>
+          <div class="post-content__author">
+            <span><%= @post.author %></span>
+          </div>
+          <div class="post-content__body">
+            <p><%= @post.body %></p>
+          </div>
+          <div class="post-content__comments-count">
+            <span>コメント <%= @post.comments_count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="entries__comments">
+    <ul class="comments__list">
+      <% @post.comments.each do |comment| %>
+        <li class="comments__item">
+          <div class="media">
+            <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+            <div class="media__bd">
+              <div class="comment-content__author">
+                <span><%= comment.author %></span>
+              </div>
+              <div class="comment-content__body">
+                <p><%= comment.body %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="comments__form">
+      <div class="form">
+        <!-- TODO: add alerts -->
+        <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
+          <div class="form-section">
+            <div class="form__item">
+              <div class="form__text-field">
+                <%= f.text_field :author, class: "input--1", placeholder: 'ニックネームだで' %>
+              </div>
+            </div>
+            <div class="form__item">
+              <div class="form__textarea">
+                <%= f.text_area :body, class: "input--1", placeholder: 'コメント'%>
+              </div>
+            </div>
+          </div>
+          <div class="form__submit">
+            <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
+              コメントする
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

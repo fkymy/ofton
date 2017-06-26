@@ -15,7 +15,7 @@ module OftonRails
     config.active_record.default_timezone = :local # activerecord timezone
 
     # add precompile target
-    # config.assets.precompile += %w()
+    config.assets.precompile += %w(application.css)
 
     config.generators do |g|
       g.assets false
