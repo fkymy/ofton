@@ -4,6 +4,10 @@ class Post < ApplicationRecord
   validates :body, presence: true
   validates :comments_count, presence: true, numericality: { only_integer: true }
 
+  scope :order_by_default, -> {
+    order(id: :desc)
+  }
+
 end
 
 # == Schema Information
