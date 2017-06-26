@@ -358,15 +358,22 @@ $screen-m: 768px;
   }
 }
 
-.comments__list {
+.entries__comments {
   border: 1px solid $color-primary;
   border-radius: 15px;
   li {
     border-bottom: 1px solid $color-main-border;
   }
-  li:last-child {
-    border-bottom: none;
-  }
+}
+.comments__list {
+  // border: 1px solid $color-primary;
+  // border-radius: 15px;
+  // li {
+  //   border-bottom: 1px solid $color-main-border;
+  // }
+  // li:last-child {
+  //   border-bottom: none;
+  // }
 }
 
 .comments__item {
@@ -380,7 +387,6 @@ $screen-m: 768px;
 }
 
 .comment-content__body {
-
 }
 
 .sns-box-wrapper {
@@ -743,6 +749,23 @@ $screen-m: 768px;
     }
   }
 }
+
+.comments__form {
+  padding: 1rem;
+  font-size: 12px;
+}
+
+.comments__form .form__textarea {
+  min-height: 150px;
+  height: 150px;
+  textarea {
+    box-sizing: border-box;         /* For IE and modern versions of Chrome */
+    -moz-box-sizing: border-box;    /* For Firefox                          */
+    -webkit-box-sizing: border-box; /* For Safari                           */
+    height: 100%;
+  }
+}
+
 
 .btn {
   font-family: inherit;

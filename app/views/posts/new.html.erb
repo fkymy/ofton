@@ -2,7 +2,7 @@
   <div class="entries__form">
     <div class="form">
       <!-- TODO: add alerts -->
-      <%= form_for :post, url: posts_path, class: "form-stacked" do |f| %>
+      <%= form_for(@post, html: { class: "form-stacked" }) do |f| %>
         <div class="form-section">
           <div class="form__item">
             <div class="form__label">

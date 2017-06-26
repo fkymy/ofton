@@ -35,5 +35,29 @@
         </li>
       <% end %>
     </ul>
+    <div class="comments__form">
+      <div class="form">
+        <!-- TODO: add alerts -->
+        <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
+          <div class="form-section">
+            <div class="form__item">
+              <div class="form__text-field">
+                <%= f.text_field :author, class: "input--1", placeholder: 'ニックネームだで' %>
+              </div>
+            </div>
+            <div class="form__item">
+              <div class="form__textarea">
+                <%= f.text_area :body, class: "input--1", placeholder: 'コメント'%>
+              </div>
+            </div>
+          </div>
+          <div class="form__submit">
+            <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
+              コメントする
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
