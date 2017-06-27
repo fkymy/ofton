@@ -510,7 +510,25 @@ $screen-m: 768px;
   width: 35px;
   height: 35px;
   margin: 0 1rem 0 0;
+
+  // since media obj is flex, need to explicitly
+  // style w/h or load time will collapse img.
+  img {
+    width: 35px;
+    height: 35px;
+    border-radius: 1px;
+  }
 }
+
+.media__img.--small {
+  width: 30px;
+  height: 30px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .media__bd {
   overflow: hidden;
   flex: 1 auto;

@@ -1,7 +1,9 @@
 <div class="entries">
   <div class="entries__item">
     <div class="media">
-      <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+      <div class="media__img">
+        <%= image_tag("https://api.adorable.io/avatars/75/#{@post.id}", :alt => "user icon") %>
+      </div>
       <div class="media__bd">
         <div>
           <div class="post-content__author">
@@ -23,7 +25,9 @@
         <% @post.comments.each do |comment| %>
           <li class="comments__item">
             <div class="media">
-              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__img --small">
+                <%= image_tag("https://api.adorable.io/avatars/75/#{comment.id}", :alt => "commenter icon") %>
+              </div>
               <div class="media__bd">
                 <div class="comment-content__author">
                   <span><%= comment.author %></span>

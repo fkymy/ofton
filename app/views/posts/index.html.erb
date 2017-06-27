@@ -18,7 +18,9 @@
         <% @posts.each do |post| %>
           <li class="entries__item">
             <div class="media">
-              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__img">
+                <%= image_tag("https://api.adorable.io/avatars/75/#{post.id}", :alt => "user icon") %>
+              </div>
               <div class="media__bd">
                 <%= link_to post_path(post), class: "post-content" do %>
                   <div>
