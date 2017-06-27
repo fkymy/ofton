@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  # decorates_assigned :comment
 
   def create
     @post = Post.find(params[:post_id])

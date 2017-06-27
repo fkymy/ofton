@@ -257,6 +257,14 @@ $screen-m: 768px;
   }
 }
 
+// <!-- <div class="floating&#45;container"> -->
+// <!--   <div class="floating&#45;action&#45;bar"> -->
+// <!--     <%= link_to new_post_path, class: "floating&#45;action&#45;bar__item" do %> -->
+// <!--       <span class="fa fa&#45;pencil fa&#45;2x"></span> -->
+// <!--     <% end %> -->
+// <!--   </div> -->
+// <!-- </div> -->
+
 // floating action
 // using flex for now, but this may be simpler:
 // https://codepen.io/simoberny/pen/pJZJQY
