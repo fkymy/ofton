@@ -334,6 +334,13 @@ $screen-m: 768px;
   }
 }
 
+.entries__pagination {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #fff;
+  color: $color-primary;
+}
+
 .post-content {
   cursor: default;
 }
@@ -396,6 +403,9 @@ $screen-m: 768px;
   p {
     font-weight: bold;
   }
+}
+.sns-box__msg {
+  color: #666;
 }
 .sns-box__list {
   margin: 20px auto 0;
@@ -770,6 +780,15 @@ $screen-m: 768px;
   }
 }
 
+// Pagination
+.pagination {
+  margin: 0 auto;
+  text-align: center;
+
+  .page.current {
+    font-weight: 900;
+   }
+}
 
 .btn {
   font-family: inherit;
