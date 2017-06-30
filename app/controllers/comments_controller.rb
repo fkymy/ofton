@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  # decorates_assigned :comment
 
   def create
     @post = Post.find(params[:post_id])
@@ -7,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post)
     else
-      render 'new'
+      redirect_to post_path(@post)
     end
   end
 

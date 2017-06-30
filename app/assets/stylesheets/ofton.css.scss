@@ -1,12 +1,10 @@
 //
-// # Foundation
+// ### Foundation ###
 //
 
 // -- Base --
 @import "lib/normalize";
 @import "lib/suitcss-base";
-
-@import "font-awesome";
 
 html,
 body {
@@ -14,7 +12,12 @@ body {
   padding: 0;
   height: 100%;
   font-size: 14px;
-  font-family: Lucida Grande,Hiragino Kaku Gothic ProN,'ヒラギノ角ゴ ProN W3',Meiryo,'メイリオ',sans-serif;
+  font-family: Lucida Grande,
+               Hiragino Kaku Gothic ProN,
+               'ヒラギノ角ゴ ProN W3',
+               Meiryo,
+               'メイリオ',
+               sans-serif;
 }
 
 a {
@@ -23,14 +26,11 @@ a {
 }
 
 // -- Variables --
-
 // Color
 $color-primary: #fb9d6d;
 $color-secondary: #f7fae9;
-
 $color-main-border: #ccd6dd;
 $color-footer-border: #eee;
-
 
 // Size
 $height-header: 50px;
@@ -43,17 +43,24 @@ $radius-table: 4px;
 
 // Screens
 $screen-m: 768px;
+$screen-l: 1200px;
 
-// -- Mixins --
+// -- Mixins -
 @mixin screen-m {
   @media (min-width: $screen-m + 1) {
     @content;
   }
 }
 
+@mixin screen-l {
+  @media (min-width: $screen-l + 1) {
+    @content;
+  }
+}
+
 @mixin mobile {
   @media (max-width: $screen-m) {
-    @content
+    @content;
   }
 }
 
@@ -64,14 +71,11 @@ $screen-m: 768px;
 }
 
 //
-// # Layouts
+// ### Layouts ###
 //
 
-// Mobile first
 [id="container"] {
-  // background-color: #e6ecf0;
   background-color: $color-secondary;
-  // height: 100%;
   width: 100%;
 }
 
@@ -98,6 +102,11 @@ $screen-m: 768px;
   height: auto;
 }
 
+[id="footer"] {
+  background-color: #fff;
+  width: 100%;
+}
+
 .aside {
   min-width: 300px;
   // min-height: 250px;
@@ -111,19 +120,8 @@ $screen-m: 768px;
   // border: 1px solid black;
 }
 
-[id="footer"] {
-  // position: fixed;
-  // bottom: 0;
-  background-color: #fff;
-  width: 100%;
-}
-
 // Medium screens
 @media all and (min-width: $screen-m) {
-  .aside {
-    flex: 1;
-  }
-
   [id="main"] {
     max-width: 75%;
     margin: 0 auto;
@@ -136,20 +134,25 @@ $screen-m: 768px;
   [id="sidebar-2"] {
     margin: 0 auto;
   }
+
+  .aside {
+    flex: 1;
+  }
 }
 
 // Large screens
-@media all and (min-width: 1200px) {
+@media all and (min-width: $screen-l) {
   /* invert order of first sidebar and main
-   * and tell the main element to take twice as much width
-   * as the sidebars
+   * and tell the main element to take 2x width as sidebars
    */
   [id="flex-wrapper"] {
     flex-direction: row;
   }
+
   [id="main"] {
     flex: 2;
   }
+
   .aside {
     flex: 1;
   }
@@ -161,8 +164,10 @@ $screen-m: 768px;
 }
 
 //
-// # Objects
+// ### Objects ###
 //
+
+@import "font-awesome";
 
 // -- Components --
 .app-logo {
@@ -170,14 +175,25 @@ $screen-m: 768px;
   font-size: 32px;
   font-family: Monaco, monospace;
   color: white;
+  height: 50px;
+  position: relative;
 }
-// .app-logo a {
-//   color: inherit;
-//   text-decoration: inherit;
-// }
-.app-logo span {
-  display: inline-block;
-  vertical-align: middle;
+
+.app-logo a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 65px;
+  height: 20px;
+}
+
+.app-logo img {
+  display: block;
+  bottom: 20px
 }
 
 .navbar {
@@ -210,6 +226,11 @@ $screen-m: 768px;
 }
 
 // TODO
+// <!-- <div class="sidebar&#45;ad&#45;wrapper"> -->
+// <!--   <div class="sidebar&#45;ad__imagebox"> -->
+// <!--     <%= image_tag("placeholder_ad_300x250.png", class: "sidebar&#45;ad__image") %> -->
+// <!--   </div> -->
+// <!-- </div> -->
 // .sidebar-ad-wrapper {
 //   width: auto;
 // }
@@ -221,12 +242,10 @@ $screen-m: 768px;
 //   margin: 0 auto;
 // }
 
-// Index
 .module {
-
 }
-.module__body {
 
+.module__body {
 }
 
 #floationg-container {
@@ -256,6 +275,28 @@ $screen-m: 768px;
     vertical-align: middle;
   }
 }
+
+
+.floating-action__item img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+}
+
+
+// <!-- <div class="floating&#45;container"> -->
+// <!--   <div class="floating&#45;action&#45;bar"> -->
+// <!--     <%= link_to new_post_path, class: "floating&#45;action&#45;bar__item" do %> -->
+// <!--       <span class="fa fa&#45;pencil fa&#45;2x"></span> -->
+// <!--     <% end %> -->
+// <!--   </div> -->
+// <!-- </div> -->
 
 // floating action
 // using flex for now, but this may be simpler:
@@ -334,6 +375,13 @@ $screen-m: 768px;
   }
 }
 
+.entries__pagination {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #fff;
+  color: $color-primary;
+}
+
 .post-content {
   cursor: default;
 }
@@ -345,7 +393,6 @@ $screen-m: 768px;
 }
 
 .post-content__body {
-
 }
 
 .post-content__comments-count {
@@ -365,6 +412,7 @@ $screen-m: 768px;
     border-bottom: 1px solid $color-main-border;
   }
 }
+
 .comments__list {
   // border: 1px solid $color-primary;
   // border-radius: 15px;
@@ -397,13 +445,20 @@ $screen-m: 768px;
     font-weight: bold;
   }
 }
+
+.sns-box__msg {
+  color: #666;
+}
+
 .sns-box__list {
   margin: 20px auto 0;
   zoom: 1;
 }
+
 .sns-box__item {
   // width: auto; what is this even...
 }
+
 .sns-box__item--twitter {
   height: 49px;
   width: 120px;
@@ -415,6 +470,7 @@ $screen-m: 768px;
   color: white;
   text-decoration: inherit;
 }
+
 .sns-box__item--twitter span {
   display: inline-block;
   vertical-align: middle;
@@ -434,6 +490,7 @@ $screen-m: 768px;
     @include centering;
   }
 }
+
 .footer-links__list {
   display: flex;
   flex-wrap: wrap;
@@ -496,23 +553,39 @@ $screen-m: 768px;
   align-items: flex-start;
   padding: 1rem;
 }
+
 .media__img {
   width: 35px;
   height: 35px;
   margin: 0 1rem 0 0;
+
+  // since media obj is flex, need to explicitly
+  // style w/h or load time will collapse img.
+  img {
+    width: 35px;
+    height: 35px;
+    border-radius: 1px;
+  }
 }
+
+.media__img.--small {
+  width: 30px;
+  height: 30px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .media__bd {
   overflow: hidden;
   flex: 1 auto;
   margin: 0 1rem 0 0;
 }
 
-
 // Form
 // https://github.com/yahoo/pure/blob/master/src/forms/css/forms.css
-
 .form {
-
 }
 
 .form input[type="text"],
@@ -651,7 +724,7 @@ $screen-m: 768px;
   width: 100%;
 }
 
-.form .pure-help-inline,
+.form .help-inline,
 .form-message-inline {
   display: inline-block;
   padding-left: 0.3em;
@@ -660,11 +733,14 @@ $screen-m: 768px;
   font-size: 0.875em;
 }
 
-/* Block help for forms */
 .form-message {
   display: block;
   color: #666;
   font-size: 0.875em;
+}
+
+.form-message.danger {
+  color: red;
 }
 
 .form-stacked {
@@ -693,7 +769,6 @@ $screen-m: 768px;
 }
 
 .form-section {
-
 }
 
 .form__item {
@@ -766,6 +841,15 @@ $screen-m: 768px;
   }
 }
 
+// Pagination
+.pagination {
+  margin: 0 auto;
+  text-align: center;
+
+  .page.current {
+    font-weight: 900;
+   }
+}
 
 .btn {
   font-family: inherit;
@@ -793,4 +877,3 @@ $screen-m: 768px;
 //   /* csslint ignore:end */
 //   background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
 // }
-

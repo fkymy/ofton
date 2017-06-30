@@ -45,14 +45,18 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'font-awesome-rails'
 
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
+gem 'dotenv-rails'
+gem 'kaminari'
+gem 'draper'
+gem 'gretel'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
-gem 'dotenv-rails'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

@@ -1,11 +1,13 @@
 <div class="entries">
   <div class="entries__item">
     <div class="media">
-      <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+      <div class="media__img">
+        <%= image_tag(@post.decorate.avatar, :alt => "user icon") %>
+      </div>
       <div class="media__bd">
         <div>
           <div class="post-content__author">
-            <span><%= @post.author %></span>
+            <span><%= @post.decorate.author %></span>
           </div>
           <div class="post-content__body">
             <p><%= @post.body %></p>
@@ -18,26 +20,29 @@
     </div>
   </div>
   <div class="entries__comments">
-    <ul class="comments__list">
-      <% @post.comments.each do |comment| %>
-        <li class="comments__item">
-          <div class="media">
-            <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
-            <div class="media__bd">
-              <div class="comment-content__author">
-                <span><%= comment.author %></span>
+    <% if @post.comments.any? %>
+      <ul class="comments__list">
+        <% @post.comments.each do |comment| %>
+          <li class="comments__item">
+            <div class="media">
+              <div class="media__img --small">
+                <%= image_tag(comment.decorate.avatar, :alt => "commenter icon") %>
               </div>
-              <div class="comment-content__body">
-                <p><%= comment.body %></p>
+              <div class="media__bd">
+                <div class="comment-content__author">
+                  <span><%= comment.decorate.author %></span>
+                </div>
+                <div class="comment-content__body">
+                  <p><%= comment.body %></p>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <div class="comments__form">
       <div class="form">
-        <!-- TODO: add alerts -->
         <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
           <div class="form-section">
             <div class="form__item">

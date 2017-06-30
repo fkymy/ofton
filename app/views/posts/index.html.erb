@@ -1,13 +1,6 @@
-<!-- <div class="floating&#45;container"> -->
-<!--   <div class="floating&#45;action&#45;bar"> -->
-<!--     <%= link_to new_post_path, class: "floating&#45;action&#45;bar__item" do %> -->
-<!--       <span class="fa fa&#45;pencil fa&#45;2x"></span> -->
-<!--     <% end %> -->
-<!--   </div> -->
-<!-- </div> -->
 <div id="floating-container">
   <%= link_to new_post_path, class: "floating-action__item" do %>
-    <span class="fa fa-pencil fa-2x"></span>
+    <%= image_tag "talk-logo.png" %>
   <% end %>
 </div>
 
@@ -18,12 +11,14 @@
         <% @posts.each do |post| %>
           <li class="entries__item">
             <div class="media">
-              <img class="media__img" src="https://api.adorable.io/avatars/285/abott@adorable.io.png" alt="">
+              <div class="media__img">
+                <%= image_tag(post.decorate.avatar, :alt => "user icon") %>
+              </div>
               <div class="media__bd">
                 <%= link_to post_path(post), class: "post-content" do %>
                   <div>
                     <div class="post-content__author">
-                      <span><%= post.author %></span>
+                      <span><%= post.decorate.author %></span>
                     </div>
                     <div class="post-content__body">
                       <p><%= post.body %></p>
@@ -38,7 +33,9 @@
           </li>
         <% end %>
       </ul>
+      <div class="entries__pagination">
+        <%= paginate @posts %>
+      </div>
     </div>
   </div>
 </div>
-<!-- pagination -->
