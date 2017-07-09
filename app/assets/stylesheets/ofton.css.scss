@@ -877,3 +877,24 @@ $screen-l: 1200px;
 //   /* csslint ignore:end */
 //   background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
 // }
+
+.static-page {
+  background-color: white;
+  color: #666666;
+  padding: 10px;
+  h1 {
+    font-size: 15pt;
+    line-height: 30pt;
+  }
+  h2 {
+    font-size: 12pt;
+    line-height: 25pt;
+  }
+  h3{
+    font-size: 10pt;
+    line-height: 20pt;
+  }
+  body {
+    line-height: 5pt;
+  }
+}
