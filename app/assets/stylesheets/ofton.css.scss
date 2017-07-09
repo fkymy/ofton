@@ -242,6 +242,46 @@ $screen-l: 1200px;
 //   margin: 0 auto;
 // }
 
+.page {
+  background-color: white;
+  color: #666;
+  padding: 15px;
+}
+
+.page-static {
+  font-size: 16px;
+  line-height: 1.4em;
+  ul {
+    list-style: circle;
+    list-style-position: inside;
+    margin-left: 10px;
+  }
+  ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin-left: 10px;
+}
+  h2 {
+    font-size: 12pt;
+    line-height: 25pt;
+  }
+}
+
+.page__header {
+  margin: 10px;
+}
+
+.page__title {
+  font-size: 15pt;
+}
+
+.page__body {
+  margin: 10px;
+  > section {
+    margin-top: 20px;
+  }
+}
+
 .module {
 }
 
