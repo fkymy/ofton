@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
 
-    if @comment.save
+    if @comment.save && Post.increment_counter(:comments_count, params[:post_id])
       redirect_to post_path(@post)
     else
       redirect_to post_path(@post)
