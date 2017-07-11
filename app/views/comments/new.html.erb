@@ -1,0 +1,32 @@
+<div class="entries">
+  <div class="entries__form">
+    <div class="form">
+      <!-- TODO: add alerts -->
+      <%= form_for :comment, url: new_post_comment_path, class: "form-stacked" do |f| %>
+        <div class="form-section">
+          <div class="form__item">
+            <div class="form__label">
+              <%= f.label :author %>
+            </div>
+            <div class="form__text-field">
+              <%= f.text_field :author, class: "input--1", placeholder: 'ニックネームだで' %>
+            </div>
+          </div>
+          <div class="form__item">
+            <div class="form__label">
+              <%= f.label :body %>
+            </div>
+            <div class="form__textarea">
+              <%= f.text_area :body, class: "input--1", placeholder: 'メンヘラっぽいこと'%>
+            </div>
+          </div>
+        </div>
+        <div class="form__submit">
+          <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
+            コメントする
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

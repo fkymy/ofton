@@ -1,0 +1,41 @@
+<div id="floating-container">
+  <%= link_to new_post_path, class: "floating-action__item" do %>
+    <%= image_tag "talk-logo.png" %>
+  <% end %>
+</div>
+
+<div class="module">
+  <div class="module__body">
+    <div class="entries">
+      <ul class="entries__list">
+        <% @posts.each do |post| %>
+          <li class="entries__item">
+            <div class="media">
+              <div class="media__img">
+                <%= image_tag(post.decorate.avatar, :alt => "user icon") %>
+              </div>
+              <div class="media__bd">
+                <%= link_to post_path(post), class: "post-content" do %>
+                  <div>
+                    <div class="post-content__author">
+                      <span><%= post.decorate.author %></span>
+                    </div>
+                    <div class="post-content__body">
+                      <p><%= post.body %></p>
+                    </div>
+                    <div class="post-content__comments-count">
+                      <span>コメント <%= post.comments_count %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <div class="entries__pagination">
+        <%= paginate @posts %>
+      </div>
+    </div>
+  </div>
+</div>

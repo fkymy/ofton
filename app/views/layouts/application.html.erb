@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OftonRails</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+<head>
+  <title>ofton</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0"
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div id="container">
+  <div id="flex-wrapper">
+  <header id="header">
+    <div class="navbar">
+      <div class="navbar-center">
+        <div class="navbar-item">
+          <div class="app-logo">
+            <%= link_to root_path do %>
+              <%= image_tag 'app-logo.png' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="alpha">
+      <div class="alpha__lede">
+        <p class="alpha__lede-text">
+          投稿の内容はかぶってもおｋです！<br>
+          体験談や今の寂しさなど、気軽に投稿しましょう!
+        </p>
+      </div>
+    </div>
     <%= yield %>
-  </body>
+  </main>
+  <aside class="aside" id="sidebar">
+  </aside>
+  <aside class="aside" id="sidebar-2">
+  </aside>
+  <div id="footer">
+      <div class="sns-box-wrapper">
+        <p class="sns-box__msg">oftonをフォローしよう！</p>
+        <ul class="sns-box__list">
+          <li class="sns-box__item">
+            <a class="sns-box__item--twitter" href="//twitter.com/chacha_menhera" target="_blank">
+              <span class="fa fa-twitter fa-3x"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    <div class="footer-links">
+      <ul class="footer-links__list">
+        <li><%= link_to 'トップ', root_path %></li>
+        <li><%= link_to 'oftonについて', about_path %></li>
+        <li><%= link_to 'お問い合わせ', contact_path %></li>
+        <li><%= link_to 'プライバシーポリシー', policy_path %></li>
+        <li><%= link_to '利用規約', terms_path %></li>
+      </ul>
+    </div>
+    <footer role='contentinfo' class="footer__contentinfo">&copy; 2017 ofton project.</footer>
+  </div>
+  </div>
+</div>
+</body>
 </html>

@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      post: "投稿"
+    attributes:
+      post:
+        author: "投稿者"
+        body: "本文"
+        comments_count: "コメント数"
