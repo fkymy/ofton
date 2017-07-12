@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # static pages
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
-  get 'privacy_policy' => 'static_pages#privacy_policy'
+  get 'policy' => 'static_pages#policy'
   get 'rule' => 'static_pages#rule'
-  get 'tos' => 'static_pages#tos'
+  get 'terms' => 'static_pages#terms'
 
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
