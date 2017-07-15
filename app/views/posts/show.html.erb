@@ -6,8 +6,9 @@
       </div>
       <div class="media__bd">
         <div>
-          <div class="post-content__author">
-            <span><%= @post.decorate.author %></span>
+          <div class="post-content__meta">
+            <span class="post-content__author"><%= @post.decorate.author %></span>
+            <span class="post-content__datetime"><%= @post.decorate.datetime %></span>
           </div>
           <div class="post-content__body">
             <p><%= simple_format(@post.body) %></p>
@@ -29,8 +30,9 @@
                 <%= image_tag(comment.decorate.avatar, :alt => "commenter icon") %>
               </div>
               <div class="media__bd">
-                <div class="comment-content__author">
-                  <span><%= comment.decorate.author %></span>
+                <div class="comment-content__meta">
+                  <span class="comment-content__author"><%= comment.decorate.author %></span>
+                  <span class="comment-content__datetime"><%= comment.decorate.datetime %></span>
                 </div>
                 <div class="comment-content__body">
                   <p><%= simple_format(comment.body) %></p>
