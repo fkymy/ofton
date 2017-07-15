@@ -17,8 +17,9 @@
               <div class="media__bd">
                 <%= link_to post_path(post), class: "post-content" do %>
                   <div>
-                    <div class="post-content__author">
-                      <span><%= post.decorate.author %></span>
+                    <div class="post-content__meta">
+                      <span class="post-content__author"><%= post.decorate.author %></span>
+                      <span class="post-content__datetime"><%= post.decorate.datetime %></span>
                     </div>
                     <div class="post-content__body">
                       <p><%= simple_format(post.body) %></p>

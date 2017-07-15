@@ -426,10 +426,18 @@ $screen-l: 1200px;
   cursor: default;
 }
 
+.post-content__meta {
+  margin: 0 0 5px 0;
+}
+
 .post-content__author {
   color: $color-primary;
-  margin: 0 0 5px 0;
   font-weight: bold;
+}
+
+.post-content__datetime {
+  color: #666;
+  font-size: 0.875em;
 }
 
 .post-content__body {
@@ -468,10 +476,18 @@ $screen-l: 1200px;
   padding-bottom: 0.5em;
 }
 
+.comment-content__meta {
+  margin: 0 0 5px 0;
+}
+
 .comment-content__author {
   color: $color-primary;
-  margin: 0 0 5px 0;
   font-weight: bold;
+}
+
+.comment-content__datetime {
+  color: #666;
+  font-size: 0.875em;
 }
 
 .comment-content__body {
