@@ -10,7 +10,7 @@
             <span><%= @post.decorate.author %></span>
           </div>
           <div class="post-content__body">
-            <p><%= @post.body %></p>
+            <p><%= simple_format(@post.body) %></p>
           </div>
           <div class="post-content__comments-count">
             <span>コメント <%= @post.comments_count %></span>
@@ -33,7 +33,7 @@
                   <span><%= comment.decorate.author %></span>
                 </div>
                 <div class="comment-content__body">
-                  <p><%= comment.body %></p>
+                  <p><%= simple_format(comment.body) %></p>
                 </div>
               </div>
             </div>
