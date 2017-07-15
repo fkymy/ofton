@@ -106,6 +106,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     gretel (3.0.9)
       rails (>= 3.1.0)
     guard (2.14.1)
@@ -296,6 +297,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   font-awesome-rails
+  google-analytics-rails
   gretel
   guard-rspec
   jbuilder (~> 2.5)
