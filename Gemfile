@@ -51,6 +51,7 @@ gem 'kaminari'
 gem 'draper'
 gem 'gretel'
 gem 'google-analytics-rails'
+gem 'slack-notifier'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
