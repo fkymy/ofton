@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to @post
+      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post))
     else
       render 'new'
     end
