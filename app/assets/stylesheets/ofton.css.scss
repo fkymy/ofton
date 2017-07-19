@@ -243,12 +243,12 @@ $screen-l: 1200px;
 // }
 
 .page {
-  background-color: white;
-  color: #666;
-  padding: 15px;
 }
 
 .page-static {
+  background-color: white;
+  padding: 15px;
+  color: #666;
   font-size: 16px;
   line-height: 1.4em;
   ul {
@@ -437,7 +437,8 @@ $screen-l: 1200px;
 
 .post-content__datetime {
   color: #666;
-  font-size: 0.875em;
+  font-size: 0.85em;
+  opacity: 0.75;
 }
 
 .post-content__body {
@@ -488,6 +489,7 @@ $screen-l: 1200px;
 .comment-content__datetime {
   color: #666;
   font-size: 0.875em;
+  opacity: 0.75;
 }
 
 .comment-content__body {
@@ -904,7 +906,10 @@ $screen-l: 1200px;
 
   .page.current {
     font-weight: 900;
-   }
+  }
+  span {
+    margin: 5px;
+  }
 }
 
 .btn {
