@@ -94,4 +94,7 @@ Rails.application.configure do
 
   # Google Analytics
   GA.tracker = ENV["GA_TRACKING_ID"]
+
+  # Exception Notification
+  config.middleware.use ExceptionNotification::Rack
 end
