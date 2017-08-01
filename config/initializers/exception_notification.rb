@@ -23,7 +23,7 @@ ExceptionNotification.configure do |config|
   # }
 
   # Slack notifier
-  config.add_notifier :slack {
+  config.add_notifier :slack, {
     webhook_url: ENV['SLACK_WEBHOOK_URL_OFTON_EXCEPTIONS']
   }
 
