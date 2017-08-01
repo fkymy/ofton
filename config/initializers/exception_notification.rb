@@ -24,8 +24,7 @@ ExceptionNotification.configure do |config|
 
   # Slack notifier
   config.add_notifier :slack {
-    :webhook_url => ENV['SLACK_WEBHOOK_URL_OFTON_EXCEPTIONS'],
-    :backtrace_lines => 10,
+    webhook_url: ENV['SLACK_WEBHOOK_URL_OFTON_EXCEPTIONS']
   }
 
   # Campfire notifier sends notifications to your Campfire room. Requires 'tinder' gem.
