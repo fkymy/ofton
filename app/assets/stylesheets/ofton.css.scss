@@ -222,7 +222,34 @@ $screen-l: 1200px;
   color: #666;
   padding: 10px 0;
   font-size: 14px;
+  line-height: 1.3;
   text-align: center;
+}
+
+.about {
+  border: 3px dotted $color-primary;
+  border-radius: 5px;
+  margin: 0 15px 15px 15px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.about__lede {
+  padding: 12px;
+  color: $color-primary;
+  padding-bottom: 15px;
+}
+
+.about__lede-text {
+  font-size: 16px;
+  text-align: center;
+}
+
+.about__action {
+  padding: 10px 0;
+  a {
+    padding: 0.7em 1.2em;
+  }
 }
 
 // TODO
@@ -919,8 +946,6 @@ $screen-l: 1200px;
   color: #444; /* rgba not supported (IE 8) */
   color: rgba(0, 0, 0, 0.80); /* rgba supported */
   border: 1px solid #999;  /*IE 6/7/8*/
-  border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-  background-color: #E6E6E6;
   text-decoration: none;
   border-radius: 2px;
 }
@@ -928,13 +953,10 @@ $screen-l: 1200px;
 .btn--primary {
   background-color: $color-primary;
   color: white;
+  border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
 }
-//
-// .btn-hover,
-// .btn:hover,
-// .btn:focus {
-//   /* csslint ignore:start */
-//   filter: alpha(opacity=90);
-//   /* csslint ignore:end */
-//   background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
-// }
+
+.btn--secondary {
+  border-color: $color-primary;
+  color: $color-primary;
+}

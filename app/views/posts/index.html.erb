@@ -6,6 +6,14 @@
 
 <div class="module">
   <div class="module__body">
+    <div class="about">
+      <div class="about__lede">
+        <p class="about__lede-text">寂しい、辛い、誰かと<br>話したい時のコミュニティ。</p>
+      </div>
+      <div class="about__action">
+        <a href="<%= about_path %>" class="btn btn--secondary">ofton について</a>
+      </div>
+    </div>
     <div class="entries">
       <ul class="entries__list">
         <% @posts.each do |post| %>
