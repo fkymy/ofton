@@ -7,10 +7,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" /> -->
+  <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+
   <% if Rails.env.production? %>
     <%= render 'shared/scripts/google_analytics' %>
   <% end %>
 </head>
+<style>
+  .error-page {
+    width: 100%;
+    position: relative;
+    font-family: "Rounded Mplus 1c";
+  }
+
+  .error-page__img {
+    max-width: 100%;
+    opacity: 0.6;
+    filter: brightness(50%);
+    border-radius: 3px;
+  }
+
+  .error-page__msg {
+    position: absolute;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    font-size: 18px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+</style>
 <body>
 <div id="container">
   <div id="flex-wrapper">
@@ -28,31 +58,20 @@
     </div>
   </header>
   <main id="main">
-    <div class="alpha">
-      <div class="alpha__lede">
-        <p class="alpha__lede-text">
-          投稿の内容は被ってもOKです！<br>
-          体験談や今の寂しさなど、気軽に投稿しましょう!
-        </p>
+    <div class="error-page">
+      <%= image_tag('404-rabbit.jpg', :class => 'error-page__img') %>
+      <p class="error-page__msg">
+        ご指定のページを表示できませんでした。
+      </p>
+      <div class="error-page__body">
       </div>
     </div>
-    <%= yield %>
   </main>
   <aside class="aside" id="sidebar">
   </aside>
   <aside class="aside" id="sidebar-2">
   </aside>
   <div id="footer">
-      <div class="sns-box-wrapper">
-        <p class="sns-box__msg">oftonをフォローしよう！</p>
-        <ul class="sns-box__list">
-          <li class="sns-box__item">
-            <a class="sns-box__item--twitter" href="//twitter.com/chacha_menhera" target="_blank">
-              <span class="fa fa-twitter fa-3x"></span>
-            </a>
-          </li>
-        </ul>
-      </div>
     <div class="footer-links">
       <ul class="footer-links__list">
         <li><%= link_to 'トップ', root_path %></li>
