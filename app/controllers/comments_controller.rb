@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
 
     if @comment.save && Post.increment_counter(:comments_count, params[:post_id])
+      Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment))
+
       redirect_to post_path(@post)
     else
       redirect_to post_path(@post)
