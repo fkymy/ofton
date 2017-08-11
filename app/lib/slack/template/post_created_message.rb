@@ -13,7 +13,7 @@ module Slack
       # See: https://api.slack.com/docs/message-attachments
       def format
         {
-          text: "投稿がございます",
+          text: "*投稿がありました*",
           attachments: [
             {
               fallback: "Post created",
