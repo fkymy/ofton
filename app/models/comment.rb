@@ -3,11 +3,6 @@ class Comment < ApplicationRecord
 
   validates :body, presence: true
 
-  enum generated_by: {
-    admin: 0,
-    stranger: 1,
-    user: 2
-  }
 end
 
 # == Schema Information

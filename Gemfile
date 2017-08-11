@@ -54,6 +54,7 @@ gem 'google-analytics-rails'
 gem 'slack-notifier'
 gem 'exception_notification'
 gem 'rambulance'
+gem 'enumerate_it'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

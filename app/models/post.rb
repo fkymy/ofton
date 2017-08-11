@@ -8,12 +8,6 @@ class Post < ApplicationRecord
     order(id: :desc)
   }
 
-  enum generate_by: {
-    admin: 0,
-    stranger: 1,
-    user: 2
-  }
-
 end
 
 # == Schema Information
