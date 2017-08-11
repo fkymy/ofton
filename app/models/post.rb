@@ -8,6 +8,12 @@ class Post < ApplicationRecord
     order(id: :desc)
   }
 
+  enum generate_by: {
+    admin: 0,
+    stranger: 1,
+    user: 2
+  }
+
 end
 
 # == Schema Information
@@ -17,7 +23,8 @@ end
 #  id             :integer          not null, primary key
 #  author         :string
 #  body           :text             not null
-#  comments_count  :integer          default("0")
+#  comments_count :integer          default("0")
+#  generated_by   :integer          default("0")
 #
 # Indexes
 #

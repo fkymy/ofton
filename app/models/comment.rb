@@ -2,6 +2,12 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   validates :body, presence: true
+
+  enum generated_by: {
+    admin: 0,
+    stranger: 1,
+    user: 2
+  }
 end
 
 # == Schema Information
@@ -12,6 +18,7 @@ end
 #  post_id        :bigint           not null
 #  author         :string
 #  body           :text             not null
+#  generated_by   :integer          default("0")
 #
 # Indexes
 #
