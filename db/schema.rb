@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170811092138) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "generated_by", default: 0, null: false
+    t.integer "generated_by", default: 1, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170811092138) do
     t.integer "comments_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "generated_by", default: 0, null: false
+    t.integer "generated_by", default: 1, null: false
   end
 
 end
