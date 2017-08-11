@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
+  has_enumeration_for :generated_by, with: PostGeneratedBy, create_helpers: { prefix: true }
+
   validates :body, presence: true
   validates :comments_count, presence: true, numericality: { only_integer: true }
 
