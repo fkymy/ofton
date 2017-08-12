@@ -31,7 +31,8 @@ class DeviseCreateAdmins < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
       ## Custom
-      t.string :name
+      t.string :name, null: false
+      t.string :slack_id
 
       t.timestamps null: false
     end

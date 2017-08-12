@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   root 'posts#index'
 
   # static pages
@@ -15,5 +14,15 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:edit, :update, :delete], concerns: :paginatable do
     resources :comments, only: [:create]
+  end
+
+  namespace :admin do
+    root 'dashboard#index'
+
+    devise_for :admins, controllers: {
+      sessions: 'admin/sessions',
+      passwords: 'admin/passwords',
+      registrations: 'admin/registrations'
+    }
   end
 end
