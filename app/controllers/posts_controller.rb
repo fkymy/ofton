@@ -16,6 +16,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+    @post.author = helpers.simple_nkf(post_params[:author])
+    @post.body = helpers.simple_nkf(post_params[:body])
+
     if @post.save
       Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post))
 
