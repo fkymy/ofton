@@ -2,7 +2,7 @@ class CommentDecorator < ApplicationDecorator
   delegate_all
 
   def author
-    object.try(:author).presence || 'anonymous'
+    object.try(:author).presence || '匿名さん'
   end
 
   def avatar
