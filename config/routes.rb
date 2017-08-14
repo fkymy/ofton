@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
+  devise_for :admins, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
+  }
+
   # static pages
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
@@ -19,10 +25,5 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
 
-    devise_for :admins, controllers: {
-      sessions: 'admin/sessions',
-      passwords: 'admin/passwords',
-      registrations: 'admin/registrations'
-    }
   end
 end
