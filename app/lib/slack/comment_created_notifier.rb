@@ -1,5 +1,5 @@
 module Slack
-  class PostCreatedNotifier < Slack::BaseNotifier
+  class CommentCreatedNotifier < Slack::BaseNotifier
     WEBHOOK_URL = ENV['SLACK_WEBHOOK_URL_OFTON']
     DEFAULT_OPTIONS = {
       username: 'chacha',
