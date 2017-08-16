@@ -1,7 +1,10 @@
 class Comment < ApplicationRecord
   belongs_to :post
 
+  has_enumeration_for :generated_by, with: CommentGeneratedBy, create_helpers: { prefix: true }
+
   validates :body, presence: true
+
 end
 
 # == Schema Information
@@ -12,6 +15,7 @@ end
 #  post_id        :bigint           not null
 #  author         :string
 #  body           :text             not null
+#  generated_by   :integer          default("0")
 #
 # Indexes
 #

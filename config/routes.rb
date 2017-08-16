@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
+  devise_for :admins,
+    controllers: {
+      sessions: 'admin/devise/sessions',
+      registrations: 'admin/devise/registrations'
+    },
+    path: 'admin',
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout'
+    }
+
   # static pages
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
@@ -14,5 +25,11 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:edit, :update, :delete], concerns: :paginatable do
     resources :comments, only: [:create]
+  end
+
+  namespace :admin do
+    root 'dashboard#index'
+
+    resources :admins, only: [:index]
   end
 end

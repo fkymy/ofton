@@ -18,9 +18,10 @@ class PostsController < ApplicationController
 
     @post.author = helpers.simple_nkf(post_params[:author])
     @post.body = helpers.simple_nkf(post_params[:body])
+    @post.generated_by = 'admin' if admin_signed_in?
 
     if @post.save
-      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post))
+      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post)) unless admin_signed_in?
 
       redirect_to @post
     else

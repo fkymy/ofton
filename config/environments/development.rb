@@ -48,6 +48,9 @@ Rails.application.configure do
   # [custom] Do not precompile in development environment.
   # config.assets.compress = false
 
+  # [custom] Devise setup
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
