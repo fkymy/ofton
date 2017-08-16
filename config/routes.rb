@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :admins,
     controllers: {
-      sessions: 'admin/sessions',
-      passwords: 'admin/passwords',
-      registrations: 'admin/registrations'
+      sessions: 'admin/devise/sessions',
+      passwords: 'admin/devise/rasswords',
+      registrations: 'admin/devise/registrations'
     },
     path: 'admin',
     path_names: {

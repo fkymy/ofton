@@ -1,4 +1,4 @@
-class Admin::PasswordsController < Devise::PasswordsController
+class Admin::Devise::PasswordsController < Devise::PasswordsController
   layout 'admin'
   # GET /resource/password/new
   # def new
