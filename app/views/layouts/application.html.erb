@@ -29,6 +29,11 @@
       </div>
     </div>
   </header>
+  <% if admin_signed_in? %>
+    <div class="app-admin-sign">
+      ADMIN VIEW
+    </div>
+  <% end %>
   <main id="main">
     <div class="alpha">
       <div class="alpha__lede">

@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Admin::CommentsController < ApplicationController
   # decorates_assigned :comment
 
   def create
@@ -7,10 +7,9 @@ class CommentsController < ApplicationController
 
     @comment.author = helpers.simple_nkf(comment_params[:author])
     @comment.body = helpers.simple_nkf(comment_params[:body])
-    @comment.genented_by = 'admin' if admin_signed_in?
 
     if @comment.save && Post.increment_counter(:comments_count, params[:post_id])
-      Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment)) unless admin_signed_in?
+      Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment))
 
       redirect_to post_path(@post)
     else

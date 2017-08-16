@@ -1,5 +1,4 @@
-class PostsController < ApplicationController
-  # decorates_assigned :posts
+class Admin::PostsController < ApplicationController
 
   def index
     @posts = Post.all.order_by_default.page(params[:page])
@@ -18,10 +17,9 @@ class PostsController < ApplicationController
 
     @post.author = helpers.simple_nkf(post_params[:author])
     @post.body = helpers.simple_nkf(post_params[:body])
-    @post.genented_by = 'admin' if admin_signed_in?
 
     if @post.save
-      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post)) unless admin_signed_in?
+      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post))
 
       redirect_to @post
     else
