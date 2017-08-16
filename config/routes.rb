@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  devise_for :admins, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
+  devise_for :admins,
+    controllers: {
+      sessions: 'admin/sessions',
+      passwords: 'admin/passwords',
+      registrations: 'admin/registrations'
+    },
+    path: 'admin',
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout'
+    }
 
   # static pages
   get 'about' => 'static_pages#about'
