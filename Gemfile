@@ -56,6 +56,7 @@ gem 'exception_notification'
 gem 'rambulance'
 gem 'enumerate_it'
 gem 'devise'
+gem 'newrelic_rpm'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
