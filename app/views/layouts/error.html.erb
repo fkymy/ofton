@@ -15,31 +15,44 @@
   <% end %>
 </head>
 <style>
+  /* .error-page { */
+  /*   width: 100%; */
+  /*   position: relative; */
+  /*   font-family: "Rounded Mplus 1c"; */
+  /* } */
+  /*  */
+  /* .error-page__img { */
+  /*   max-width: 100%; */
+  /*   opacity: 0.5; */
+  /*   filter: brightness(50%); */
+  /*   border-radius: 3px; */
+  /* } */
+  /*  */
+  /* .error-page__msg { */
+  /*   position: absolute; */
+  /*   font-weight: 500; */
+  /*   color: white; */
+  /*   margin: 0; */
+  /*   top: 50%; */
+  /*   left: 50%; */
+  /*   font-size: 18px; */
+  /*   text-align: center; */
+  /*   transform: translate(-50%, -50%); */
+  /* } */
+
   .error-page {
     width: 100%;
     position: relative;
     font-family: "Rounded Mplus 1c";
-  }
-
-  .error-page__img {
-    max-width: 100%;
-    opacity: 0.5;
-    filter: brightness(50%);
-    border-radius: 3px;
+    background-color: white;
   }
 
   .error-page__msg {
-    position: absolute;
-    font-weight: 500;
-    color: white;
-    margin: 0;
-    top: 50%;
-    left: 50%;
-    font-size: 18px;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    font-size: 16px;
     text-align: center;
-    transform: translate(-50%, -50%);
   }
-
 </style>
 <body>
 <div id="container">
@@ -59,9 +72,10 @@
   </header>
   <main id="main">
     <div class="error-page">
-      <%= image_tag('404-rabbit.jpg', :class => 'error-page__img') %>
+      <%# <%= image_tag('404-rabbit.jpg', :class => 'error-page__img') %>
+
       <p class="error-page__msg">
-        ご指定のページを表示できませんでした。
+        ご指定のページを表示できませんでした。<br>ごめんなさい。
       </p>
       <div class="error-page__body">
       </div>
