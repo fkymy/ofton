@@ -1,7 +1,5 @@
 require 'exception_notification/rails'
 
-
-
 ExceptionNotification.configure do |config|
   # Ignore additional exception types.
   # ActiveRecord::RecordNotFound, Mongoid::Errors::DocumentNotFound, AbstractController::ActionNotFound and ActionController::RoutingError are already added.
@@ -9,9 +7,9 @@ ExceptionNotification.configure do |config|
 
   # Adds a condition to decide when an exception must be ignored or not.
   # The ignore_if method can be invoked multiple times to add extra conditions.
-  # config.ignore_if do |exception, options|
-  #   not Rails.env.production?
-  # end
+  config.ignore_if do |exception, options|
+    not Rails.env.production?
+  end
 
   # Notifiers =================================================================
 
