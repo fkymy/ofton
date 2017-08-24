@@ -29,3 +29,5 @@ Comment.create(post_id: 1, author: 'yushi', body: 'test comment')
 Comment.create(post_id: 2, author: 'yushi', body: 'test comment')
 Comment.create(post_id: 2, author: 'yushi', body: 'test comment')
 Comment.create(post_id: 3, author: 'yushi', body: 'test comment')
+
+Admin.create(email: 'test@example.com', password: 'testtest', name: 'test_admin')
