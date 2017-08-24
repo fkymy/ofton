@@ -26,7 +26,7 @@
         <li><%= link_to 'oftonホーム', root_path %></li>
         <% if admin_signed_in? %>
         <!--This block is only visible to signed in admins -->
-          <li><%= link_to 'マイアカウント', edit_admin_registration_path  %></li>
+          <!-- <li><%= link_to 'マイアカウント', edit_admin_registration_path  %></li> -->
           <li><%= link_to 'ログアウト', destroy_admin_session_path, :method => :delete %></li>
         <!-- The block ends here -->
         <% else %>
