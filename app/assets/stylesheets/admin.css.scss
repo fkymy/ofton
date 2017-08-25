@@ -2,10 +2,13 @@
 // ### Foundation ###
 //
 
-// -- Base --
+/*
+ * Base
+ */
+
 @import "lib/normalize";
 @import "lib/suitcss-base";
-// @import "lib/bootstrap.min";
+@import "font-awesome";
 
 html,
 body {
@@ -19,11 +22,21 @@ body {
                Meiryo,
                'メイリオ',
                sans-serif;
+  // fixed-top
+  padding-top: 70px;
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+// Typography
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
 }
 
 // -- Variables --
@@ -71,104 +84,14 @@ $screen-l: 1200px;
   max-width: $width;
 }
 
-//
-// ### Layouts ###
-//
 
-[id="container"] {
-  background-color: $color-secondary;
-  width: 100%;
-}
-
-[id="flex-wrapper"] {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-[id="flex-wrapper"] > * {
-  flex: 1 100%;
-  background-color: $color-secondary;
-}
-
-[id="header"] {
-  background-color: $color-primary;
-}
-
-[id="main"] {
-  height: auto;
-}
-
-[id="footer"] {
-  background-color: #fff;
-  width: 100%;
-}
-
-.aside {
-  min-width: 300px;
-  // min-height: 250px;
-}
-
-[id="sidebar"] {
-  // border: 1px solid black;
-}
-
-[id="sidebar-2"] {
-  // border: 1px solid black;
-}
-
-// Medium screens
-@media all and (min-width: $screen-m) {
-  [id="main"] {
-    max-width: 75%;
-    margin: 0 auto;
-  }
-
-  [id="sidebar"] {
-    margin: 0 auto;
-  }
-
-  [id="sidebar-2"] {
-    margin: 0 auto;
-  }
-
-  .aside {
-    flex: 1;
-  }
-}
-
-// Large screens
-@media all and (min-width: $screen-l) {
-  /* invert order of first sidebar and main
-   * and tell the main element to take 2x width as sidebars
-   */
-  [id="flex-wrapper"] {
-    flex-direction: row;
-  }
-
-  [id="main"] {
-    flex: 2;
-  }
-
-  .aside {
-    flex: 1;
-  }
-
-  [id="sidebar"] { order: 1; }
-  [id="main"] { order: 2; }
-  [id="sidebar-2"] { order: 3; }
-  [id="footer"] { order: 4; }
-}
+/*
+ * Layouts
+ */
 
 //
 // ### Objects ###
 //
-
-@import "font-awesome";
 
 // -- Components --
 

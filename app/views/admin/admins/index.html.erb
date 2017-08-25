@@ -1,4 +1,21 @@
-<% @admins.each do |admin| %>
-  <%= admin.id %>
-  <%= admin.name %>
-<% end %>
+<h2>アドミン管理</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.id %></td>
+          <td><%= admin.name %></td>
+          <td><%= admin.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

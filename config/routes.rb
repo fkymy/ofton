@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :admins,
     controllers: {
-      sessions: 'admin/sessions',
-      registrations: 'admin/registrations'
+      sessions: 'admin/sessions'
     },
     path: 'admin',
     path_names: {
@@ -31,5 +30,6 @@ Rails.application.routes.draw do
     root 'dashboard#index'
 
     resources :admins, only: [:index]
+    resources :posts, only: [:index, :show]
   end
 end

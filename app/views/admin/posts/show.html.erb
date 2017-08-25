@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">投稿ID: <%= @post.id %></h4>
+    <p class="card-text"><%= @post.decorate.author %></p>
+    <p class="card-text"><%= @post.decorate.datetime %></p>
+    <p class="card-text"><%= simple_format(hbr(@post.body)) %></p>
+    <p class="card-text">コメント数：<%= @post.comments_count %></p>
+  </div>
+  <% if @post.comments.any? %>
+    <ul class="list-group list-group-flush">
+      <% @post.comments.each do |comment| %>
+        <li class="list-group-item">
+          <%= comment.decorate.author %>
+          <%= comment.decorate.datetime %>
+          <%= simple_format(hbr(comment.body)) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="card-body">
+    <%= link_to 'この投稿へ行く', post_path(@post), :class => "card-link" %>
+  </div>
+</div>
