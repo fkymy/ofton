@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
   layout 'admin'
 
   def index
-    @posts = Post.all.order_by_default.page(params[:page])
+    @posts = Post.all.order_by_default
   end
 
   def show
