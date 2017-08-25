@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     root 'dashboard#index'
 
     resources :admins, only: [:index]
+    resources :posts, only: [:index, :show]
   end
 end

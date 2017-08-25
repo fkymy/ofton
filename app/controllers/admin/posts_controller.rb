@@ -1,13 +1,14 @@
 class Admin::PostsController < ApplicationController
-  #
-  # def index
-  #   @posts = Post.all.order_by_default.page(params[:page])
-  # end
-  #
-  # def show
-  #   @post = Post.find(params[:id])
-  # end
-  #
+  layout 'admin'
+
+  def index
+    @posts = Post.all.order_by_default.page(params[:page])
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
   # def new
   #   @post = Post.new
   # end
