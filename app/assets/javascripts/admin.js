@@ -1,4 +1,3 @@
-
 // this is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -11,6 +10,12 @@
 // read sprockets readme (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// bootstrap core js
+// jquery first, popper, then bootstrap
+//
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= jquery
+//= jquery_ujs
+//= lib/popper.min
+//= lib/bootstrap.min
