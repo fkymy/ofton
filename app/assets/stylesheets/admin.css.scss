@@ -2,10 +2,13 @@
 // ### Foundation ###
 //
 
-// -- Base --
+/*
+ * Base
+ */
+
 @import "lib/normalize";
 @import "lib/suitcss-base";
-// @import "lib/bootstrap.min";
+@import "font-awesome";
 
 html,
 body {
@@ -19,11 +22,21 @@ body {
                Meiryo,
                'メイリオ',
                sans-serif;
+  // fixed-top
+  padding-top: 70px;
 }
 
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+// Typography
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
 }
 
 // -- Variables --
@@ -71,104 +84,62 @@ $screen-l: 1200px;
   max-width: $width;
 }
 
-//
-// ### Layouts ###
-//
 
-[id="container"] {
-  background-color: $color-secondary;
+/*
+ * Layouts
+ */
+
+// sidebar
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
   width: 100%;
 }
 
-[id="flex-wrapper"] {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
 }
 
-[id="flex-wrapper"] > * {
-  flex: 1 100%;
-  background-color: $color-secondary;
+.sidebar .nav-link {
+  border-radius: 0;
 }
 
-[id="header"] {
-  background-color: $color-primary;
+// Dashboard
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
 }
 
-[id="main"] {
-  height: auto;
-}
-
-[id="footer"] {
-  background-color: #fff;
-  width: 100%;
-}
-
-.aside {
-  min-width: 300px;
-  // min-height: 250px;
-}
-
-[id="sidebar"] {
-  // border: 1px solid black;
-}
-
-[id="sidebar-2"] {
-  // border: 1px solid black;
-}
-
-// Medium screens
-@media all and (min-width: $screen-m) {
-  [id="main"] {
-    max-width: 75%;
-    margin: 0 auto;
-  }
-
-  [id="sidebar"] {
-    margin: 0 auto;
-  }
-
-  [id="sidebar-2"] {
-    margin: 0 auto;
-  }
-
-  .aside {
-    flex: 1;
-  }
-}
-
-// Large screens
-@media all and (min-width: $screen-l) {
-  /* invert order of first sidebar and main
-   * and tell the main element to take 2x width as sidebars
-   */
-  [id="flex-wrapper"] {
-    flex-direction: row;
-  }
-
-  [id="main"] {
-    flex: 2;
-  }
-
-  .aside {
-    flex: 1;
-  }
-
-  [id="sidebar"] { order: 1; }
-  [id="main"] { order: 2; }
-  [id="sidebar-2"] { order: 3; }
-  [id="footer"] { order: 4; }
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 //
 // ### Objects ###
 //
-
-@import "font-awesome";
 
 // -- Components --
 
