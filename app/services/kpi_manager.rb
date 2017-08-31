@@ -22,7 +22,6 @@ class KpiManager
       stranger_comments = strange_comments.size
       comments_per_post = all_comments.to_f / all_posts
 
-      authors = (posts.pluck(:author) + comments.pluck(:author)).uniq.size
       strangers = (strange_posts.pluck(:author) + strange_comments.pluck(:author)).uniq.size
 
       data[key]['all_posts'] = all_posts
@@ -30,7 +29,6 @@ class KpiManager
       data[key]['all_comments'] = all_comments
       data[key]['stranger_comments'] = stranger_comments
       data[key]['comments_per_post'] = comments_per_post
-      data[key]['authors'] = authors
       data[key]['strangers'] = strangers
     end
 
