@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @recents = Post.since(24.hours.ago)
-    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.page(params[:page])
+    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.distinct.page(params[:page])
   end
 
   def show
