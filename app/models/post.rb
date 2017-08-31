@@ -13,6 +13,10 @@ class Post < ApplicationRecord
   scope :since, ->(time) {
     where("created_at > ?", time)
   }
+
+  scope :order_by_last_active_at, -> {
+    order(last_active_at: :desc)
+  }
 end
 
 # == Schema Information
@@ -24,6 +28,7 @@ end
 #  body           :text             not null
 #  comments_count :integer          default("0")
 #  generated_by   :integer          default("0")
+#  last_active_at :datetime         default(Time.now)
 #
 # Indexes
 #
