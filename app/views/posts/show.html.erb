@@ -21,9 +21,9 @@
     </div>
   </div>
   <div class="entries__comments">
-    <% if @post.comments.any? %>
+    <% if @comments.any? %>
       <ul class="comments__list">
-        <% @post.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
           <li class="comments__item">
             <div class="media">
               <div class="media__img --small">
