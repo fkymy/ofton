@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post.author = helpers.simple_nkf(post_params[:author])
     @post.body = helpers.simple_nkf(post_params[:body])
     @post.generated_by = 'admin' if admin_signed_in?
+    @post.last_active_at = Time.now
 
     if @post.save
       Slack::PostCreatedNotifier.notify(
