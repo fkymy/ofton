@@ -9,7 +9,10 @@ class CommentsController < ApplicationController
     @comment.body = helpers.simple_nkf(comment_params[:body])
     @comment.generated_by = 'admin' if admin_signed_in?
 
-    if @comment.save && Post.increment_counter(:comments_count, params[:post_id])
+    @comment.post.last_active_at = Time.now
+    @comment.post.comments_count += 1
+
+    if @comment.save && @comment.post.save
       Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment)) unless admin_signed_in?
 
       redirect_to post_path(@post)

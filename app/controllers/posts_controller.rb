@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @recents = Post.since(24.hours.ago)
-    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order('comments.created_at desc').distinct.page(params[:page])
+    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.page(params[:page])
   end
 
   def show
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post.author = helpers.simple_nkf(post_params[:author])
     @post.body = helpers.simple_nkf(post_params[:body])
     @post.generated_by = 'admin' if admin_signed_in?
+    @post.last_active_at = Time.now
 
     if @post.save
       Slack::PostCreatedNotifier.notify(
