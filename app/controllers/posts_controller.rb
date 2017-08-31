@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   # decorates_assigned :posts
 
   def index
-    @posts = Post.all.order_by_default.page(params[:page])
+    @recents = Post.since(24.hours.ago)
+    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order('comments.created_at desc').page(params[:page])
+
   end
 
   def show
@@ -22,7 +24,9 @@ class PostsController < ApplicationController
     @post.generated_by = 'admin' if admin_signed_in?
 
     if @post.save
-      Slack::PostCreatedNotifier.notify(Slack::Template::PostCreatedMessage.format(@post)) unless admin_signed_in?
+      Slack::PostCreatedNotifier.notify(
+        Slack::Template::PostCreatedMessage.format(@post)
+      ) unless admin_signed_in?
 
       redirect_to @post
     else

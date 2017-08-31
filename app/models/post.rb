@@ -10,6 +10,9 @@ class Post < ApplicationRecord
     order(id: :desc)
   }
 
+  scope :since, ->(time) {
+    where("created_at > ?", time)
+  }
 end
 
 # == Schema Information

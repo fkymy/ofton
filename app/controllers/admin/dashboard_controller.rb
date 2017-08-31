@@ -4,5 +4,6 @@ class Admin::DashboardController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    @data = KpiManager.fetch_data
   end
 end
