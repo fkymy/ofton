@@ -10,7 +10,7 @@
             <div>
               <div class="post-content__meta">
                 <span class="post-content__author"><%= post.decorate.author %></span>
-                <span class="post-content__datetime"><%= post.comments.last.present? ? post.comments.last.decorate.datetime : post.decorate.datetime %></span>
+                <span class="post-content__datetime"><%= post.decorate.datetime %></span>
               </div>
               <div class="post-content__body">
                 <%= simple_format(hbr(post.body)) %>
