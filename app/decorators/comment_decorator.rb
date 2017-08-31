@@ -6,7 +6,7 @@ class CommentDecorator < ApplicationDecorator
   end
 
   def avatar
-    "https://api.adorable.io/avatars/75/#{object.id}"
+    "https://api.adorable.io/avatars/75/#{object.author}"
   end
 
   def datetime
