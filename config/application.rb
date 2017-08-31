@@ -17,8 +17,6 @@ module OftonRails
     # add precompile target
     config.assets.precompile += %w(application.css)
 
-    config.autoload_paths << "#{Rails.root}/app/services"
-
     config.generators do |g|
       g.assets false
       g.helper false
