@@ -10,8 +10,16 @@ class PostDecorator < ApplicationDecorator
   end
 
   def datetime
-    if object.last_active_at > 1.week.ago
+    if object.created_at > 1.week.ago
       "#{h.time_ago_in_words(object.created_at)}前"
+    else
+      l(object.created_at, format: :long)
+    end
+  end
+
+  def last_active_at
+    if object.last_active_at > 1.week.ago
+      "#{h.time_ago_in_words(object.last_active_at)}前"
     else
       l(object.last_active_at, format: :long)
     end
