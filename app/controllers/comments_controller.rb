@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
     @comment.generated_by = 'admin' if admin_signed_in?
 
     @comment.post.last_active_at = Time.now
-    @comment.post.comments_count += 1
 
     if @comment.save && @comment.post.save
       Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment)) unless admin_signed_in?
