@@ -4,7 +4,7 @@
     <p class="card-text"><%= @post.decorate.author %></p>
     <p class="card-text"><%= @post.decorate.datetime %></p>
     <p class="card-text"><%= simple_format(hbr(@post.body)) %></p>
-    <p class="card-text">コメント数：<%= @post.comments_count %></p>
+    <p class="card-text">コメント数：<%= @post.comments.size %></p>
   </div>
   <% if @post.comments.any? %>
     <ul class="list-group list-group-flush">

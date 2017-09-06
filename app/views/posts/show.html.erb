@@ -14,7 +14,7 @@
             <%= simple_format(hbr(@post.body)) %>
           </div>
           <div class="post-content__comments-count">
-            <span>コメント <%= @post.comments_count %></span>
+            <span>コメント <%= @post.comments.size %></span>
           </div>
         </div>
       </div>
