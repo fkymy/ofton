@@ -20,7 +20,7 @@ class KpiManager
       all_comments = comments.size
       stranger_posts = strange_posts.size
       stranger_comments = strange_comments.size
-      comments_per_post = (all_comments.to_f / all_posts).round(2)
+      comments_per_post = all_posts == 0 ? 'NA' : (all_comments.to_f / all_posts).round(2)
 
       strangers = (strange_posts.pluck(:author) + strange_comments.pluck(:author)).uniq.size
 
