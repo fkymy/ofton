@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'application#index'
 
   devise_for :admins,
     controllers: {
