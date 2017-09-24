@@ -1,70 +1,123 @@
-<div class="entries">
-  <div class="entries__item">
-    <div class="media">
-      <div class="media__img">
-        <%= image_tag(@post.decorate.avatar, :alt => "user icon") %>
+<main id="main" style="margin-bottom: '200px;">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="postShow">
+        <div class="o-media">
+          <div class="row start-xs">
+            <div class="col-xs-2">
+              <div class="o-media__img">
+                <a href="#">
+                  <%= image_tag("animals/lion-square.svg", :alt => "user icon") %>
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-10" style={{paddingLeft:'0.2rem'}}>
+              <div class="o-media__bd">
+                <div class="postContent">
+                  <div class="postContent__meta">
+                    <a href="#">
+                      <span class="postContent__author"><%= @post.decorate.author %></span>
+                    </a>
+                    <span class="postContent__datetime"><%= @post.decorate.datetime %></span>
+                  </div>
+                  <div class="postContent__body">
+                    <p><%= simple_format(hbr(@post.body)) %></p>
+                  </div>
+                  <div class="postContent__commentsCount">
+                    <span>コメント <%= @post.comments.size %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="media__bd">
-        <div>
-          <div class="post-content__meta">
-            <span class="post-content__author"><%= @post.decorate.author %></span>
-            <span class="post-content__datetime"><%= @post.decorate.datetime %></span>
-          </div>
-          <div class="post-content__body">
-            <%= simple_format(hbr(@post.body)) %>
-          </div>
-          <div class="post-content__comments-count">
-            <span>コメント <%= @post.comments.size %></span>
+      <div class="postShowComments">
+        <h2 class="postShowComments__heading">コメント</h2>
+        <% if @comments.any? %>
+          <ul class="commentList">
+            <% @comments.each do |comment| %>
+              <li class="commentItem">
+                <div class="o-media">
+                  <div class="row start-xs">
+                    <div class="col-xs-2">
+                      <div class="o-media__img  --small">
+                        <a href="#">
+                          <%= image_tag("animals/pig-square.svg", :alt => "comment user icon") %>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xs-10">
+                      <div class="o-media__bd">
+                        <div class="commentContent">
+                          <div class="commentContent__meta">
+                            <Link to="/users/1">
+                              <span class="commentContent__author"><%= comment.decorate.author %></span>
+                            </Link>
+                            <span class="commentContent__datetime"><%= comment.decorate.datetime %></span>
+                          </div>
+                          <div class="commentContent__body">
+                            <p><%= simple_format(hbr(comment.body)) %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="commentForm">
+    <div class="row between-xs commentFormWrapper">
+      <div class="col-xs-9 commentForm__itemWrapper">
+        <div class="commentForm__form">
+          <Textarea
+            type="text"
+            id="commentForm__textarea"
+            placeholder="コメントする"
+            maxRows={4}
+            value={this.state.commentForm.body}
+            onChange={this.onChangeCommentBody.bind(this)}>
+          </Textarea>
+        </div>
+      </div>
+      <div class="col-xs-3 commentForm__itemWrapper">
+        <div class="commentForm__item">
+          <div class="commentForm__submit">
+            <div id="btn-commentForm__submit" class="btn btn--primary">
+              <Feather.MessageCircle color="#f7fae9"/>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="entries__comments">
-    <% if @comments.any? %>
-      <ul class="comments__list">
-        <% @comments.each do |comment| %>
-          <li class="comments__item">
-            <div class="media">
-              <div class="media__img --small">
-                <%= image_tag(comment.decorate.avatar, :alt => "commenter icon") %>
-              </div>
-              <div class="media__bd">
-                <div class="comment-content__meta">
-                  <span class="comment-content__author"><%= comment.decorate.author %></span>
-                  <span class="comment-content__datetime"><%= comment.decorate.datetime %></span>
-                </div>
-                <div class="comment-content__body">
-                  <p><%= simple_format(hbr(comment.body)) %></p>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <div class="comments__form">
-      <div class="form">
-        <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
-          <div class="form-section">
-            <div class="form__item">
-              <div class="form__text-field">
-                <%= f.text_field :author, class: "input--1", placeholder: 'ニックネーム' %>
-              </div>
-            </div>
-            <div class="form__item">
-              <div class="form__textarea">
-                <%= f.text_area :body, class: "input--1", placeholder: 'コメント'%>
-              </div>
-            </div>
+  </div> -->
+</main>
+
+<!-- <div class="comments__form">
+  <div class="form">
+    <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
+      <div class="form-section">
+        <div class="form__item">
+          <div class="form__text-field">
+            <%= f.text_field :author, class: "input--1", placeholder: 'ニックネーム' %>
           </div>
-          <div class="form__submit">
-            <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
-              コメントする
-            <% end %>
+        </div>
+        <div class="form__item">
+          <div class="form__textarea">
+            <%= f.text_area :body, class: "input--1", placeholder: 'コメント'%>
           </div>
+        </div>
+      </div>
+      <div class="form__submit">
+        <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
+          コメントする
         <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+</div> -->

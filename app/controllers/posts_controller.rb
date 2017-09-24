@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   # decorates_assigned :posts
 
   def index
-    @recents = Post.since(24.hours.ago).order_by_default
-    @posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.distinct.page(params[:page])
+    #@recents = Post.since(24.hours.ago).order_by_default
+    #@posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.distinct.page(params[:page])
+    @posts = Post.all.joins(:comments).order_by_last_active_at.distinct.page(params[:page])
   end
 
   def show
