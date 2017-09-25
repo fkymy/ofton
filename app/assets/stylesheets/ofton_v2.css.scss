@@ -5,6 +5,7 @@
 // -- Base --
 @import "lib/normalize";
 @import "lib/suitcss-base";
+// @import "font-awesome";
 
 html,
 body {
@@ -186,8 +187,11 @@ $screen-l: 1200px;
   // padding-left: 18px;
   // padding-right: 18px;
   height: $header-nav-height;
-  #active {
+  #nav-active {
     border-bottom: 2px solid $color-primary;
+    svg {
+      stroke: $color-primary;
+    }
   }
 }
 
