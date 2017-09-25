@@ -117,7 +117,15 @@ $screen-l: 1200px;
 
 [id="main"] {
   height: auto;
-  margin-top: $main-margin-top; // header-main + header-nav
+  // margin-top: $main-margin-top; // header-main + header-nav
+}
+
+.mainMarginTop {
+  height: $header-main-height;
+}
+
+.navMarginTop {
+  height: $header-nav-height;
 }
 
 [id="footer"] {
@@ -193,6 +201,10 @@ $screen-l: 1200px;
       stroke: $color-primary;
     }
   }
+}
+
+.headerNav.noUser {
+  height: 0px;
 }
 
 .headerNav__item {
@@ -957,6 +969,193 @@ $original-pink: #ff9aed;
 
 #btn-commentForm__submit {
   padding: 0.2em;
+}
+
+.userRegistration {
+  background: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20px;
+}
+
+.userForm {
+}
+
+.userForm .field {
+  margin-bottom: 20px;
+  width: 100%;
+  label {
+    padding-bottom: 10px;
+  }
+}
+
+// userForm
+// https://github.com/yahoo/pure/blob/master/src/userForms/css/userForms.css
+.userForm {
+}
+
+.userForm input[type="text"],
+.userForm input[type="password"],
+.userForm input[type="email"],
+.userForm input[type="url"],
+.userForm input[type="date"],
+.userForm input[type="month"],
+.userForm input[type="time"],
+.userForm input[type="datetime"],
+.userForm input[type="datetime-local"],
+.userForm input[type="week"],
+.userForm input[type="number"],
+.userForm input[type="search"],
+.userForm input[type="tel"],
+.userForm input[type="color"],
+.userForm select,
+.userForm textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.userForm textarea {
+  resize: none;
+}
+
+// Chrome needs additional room for color to display
+.userForm input[type="color"] {
+  padding: 0.2em 0.5em;
+}
+
+.userForm input[type="text"]:focus,
+.userForm input[type="password"]:focus,
+.userForm input[type="email"]:focus,
+.userForm input[type="url"]:focus,
+.userForm input[type="date"]:focus,
+.userForm input[type="month"]:focus,
+.userForm input[type="time"]:focus,
+.userForm input[type="datetime"]:focus,
+.userForm input[type="datetime-local"]:focus,
+.userForm input[type="week"]:focus,
+.userForm input[type="number"]:focus,
+.userForm input[type="search"]:focus,
+.userForm input[type="tel"]:focus,
+.userForm input[type="color"]:focus,
+.userForm select:focus,
+.userForm textarea:focus {
+  outline: 0;
+  border-color: $color-primary;
+}
+
+.userForm input[type="file"]:focus,
+.userForm input[type="radio"]:focus,
+.userForm input[type="checkbox"]:focus {
+  outline: thin solid $color-primary;
+  outline: 1px auto $color-primary;
+}
+.userForm .pure-checkbox,
+.userForm .pure-radio {
+  margin: 0.5em 0;
+  display: block;
+}
+
+.userForm input[type="text"][disabled],
+.userForm input[type="password"][disabled],
+.userForm input[type="email"][disabled],
+.userForm input[type="url"][disabled],
+.userForm input[type="date"][disabled],
+.userForm input[type="month"][disabled],
+.userForm input[type="time"][disabled],
+.userForm input[type="datetime"][disabled],
+.userForm input[type="datetime-local"][disabled],
+.userForm input[type="week"][disabled],
+.userForm input[type="number"][disabled],
+.userForm input[type="search"][disabled],
+.userForm input[type="tel"][disabled],
+.userForm input[type="color"][disabled],
+.userForm select[disabled],
+.userForm textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+
+.userForm input[readonly],
+.userForm select[readonly],
+.userForm textarea[readonly] {
+  background-color: #eee; /* menu hover bg color */
+  color: #777; /* menu text color */
+  border-color: #ccc;
+}
+
+.userForm input:focus:invalid,
+.userForm textarea:focus:invalid,
+.userForm select:focus:invalid {
+  color: #b94a48;
+  border-color: #e9322d;
+}
+.userForm input[type="file"]:focus:invalid:focus,
+.userForm input[type="radio"]:focus:invalid:focus,
+.userForm input[type="checkbox"]:focus:invalid:focus {
+  outline-color: #e9322d;
+}
+.userForm select {
+  /* Normalizes the height; padding is not sufficient. */
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+.userForm select[multiple] {
+  height: auto;
+}
+.userForm label {
+  margin: 0.5em 0 0.2em;
+}
+.userForm fieldset {
+  margin: 0;
+  padding: 0.35em 0 0.75em;
+  border: 0;
+}
+.useruserForm legend {
+  display: block;
+  width: 100%;
+  padding: 0.3em 0;
+  margin-bottom: 0.3em;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+.userForm .form__submit {
+  margin-right: 0.2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#userFormBtn {
+  font-size: 1.25em;
+  padding: 0.5em 1.5em;
+}
+
+.userFormSection {
+
+}
+
+.userFormMessage {
+  display: block;
+  color: #666;
+  font-size: 0.875em;
+}
+
+.userFormMessage.danger {
+  color: red;
+}
+
+.userDeviseLinks {
+  background: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 // -- Objects --
