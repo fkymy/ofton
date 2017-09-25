@@ -9,6 +9,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
   <!-- <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" /> -->
   <% if Rails.env.production? %>
     <%= render 'shared/scripts/google_analytics' %>
@@ -24,16 +25,77 @@
           <div class="headerMain__brand">
             <a class="" href="/"><span>ofton</span></a>
           </div>
+          <div class="headerMain__toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f7fae9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </div>
+        </div>
+        <nav class="headerMain__menu">
+          <div class="headerMain__links">
+            <a href="/">トップ</a>
+            <a href="/about">oftonについて</a>
+            <a href="/policy">ポリシー</a>
+            <a href="/contact">お問い合わせ</a>
+            <a href="/logout">ログアウト</a>
+          </div>
+        </nav>
+        <div class="headerNav">
+          <div class="row center-xs">
+            <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-active'>
+              <a href="/">
+                <div class="headerNav__icon">
+                  <i data-feather="home"></i>
+                </div>
+              </a>
+            </div>
+            <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id=''>
+              <a href="/">
+                <div class="headerNav__icon">
+                  <i data-feather="heart"></i>
+                </div>
+              </a>
+            </div>
+            <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id=''>
+              <a href="/">
+                <div class="headerNav__icon">
+                  <i data-feather="user"></i>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-    <% if admin_signed_in? %>
-      <div class="app-admin-sign">ADMIN VIEW</div>
-    <% end %>
-    <main id="main">
-      <%= yield %>
-    </main>
+
+    <%= yield %>
   </div>
 </div>
 </body>
+<script>
+  $(function() {
+    feather.replace({
+      class: '',
+      'stroke-width': 2,
+      stroke: '#657786',
+      width: 22,
+      height: 22
+    });
+  });
+
+  $('.headerMain__toggle').on('click', function() {
+    let linksElement = document.querySelector('.headerMain__links');
+    let navElement = document.querySelector('.headerNav');
+
+    if (linksElement.style.display == 'block') {
+      linksElement.style.display = 'none';
+      navElement.style.display = 'block';
+    } else {
+      navElement.style.display = 'none';
+      linksElement.style.display = 'block';
+    }
+  });
+</script>
 </html>
