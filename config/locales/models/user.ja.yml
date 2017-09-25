@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        username: "お名前"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        remember_me: "次回から自動ログイン"

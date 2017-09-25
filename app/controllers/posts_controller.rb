@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   # decorates_assigned :posts
+  before_action :redirect_new_user, only: [:new]
 
   def index
     #@recents = Post.since(24.hours.ago).order_by_default
@@ -39,5 +40,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:author, :body)
+  end
+
+  def redirect_new_user
+    unless user_signed_in?
+      redirect_to new_user_registration_path
+    end
   end
 end
