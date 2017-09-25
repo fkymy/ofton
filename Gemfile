@@ -45,6 +45,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'react-rails'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 gem 'dotenv-rails'
