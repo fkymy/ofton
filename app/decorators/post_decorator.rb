@@ -2,7 +2,7 @@ class PostDecorator < ApplicationDecorator
   delegate_all
 
   def author
-    object.try(:author).presence || '匿名さん'
+    object.try(:author).presence || "#{object.user.username}さん"
   end
 
   def avatar
@@ -18,10 +18,11 @@ class PostDecorator < ApplicationDecorator
   end
 
   def last_active_at
-    if object.last_active_at > 1.week.ago
-      "#{h.time_ago_in_words(object.last_active_at)}前"
+    # set to updated_at, as comment touches post
+    if object.updated_at > 1.week.ago
+      "#{h.time_ago_in_words(object.updated_at)}前"
     else
-      l(object.last_active_at, format: :long)
+      l(object.updated_at, format: :long)
     end
   end
 end

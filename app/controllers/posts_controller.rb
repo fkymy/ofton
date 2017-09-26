@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # decorates_assigned :posts
-  before_action :redirect_new_user, only: [:new]
+  before_action :sign_in_user, only: [:new, :create]
 
   def index
     #@recents = Post.since(24.hours.ago).order_by_default
@@ -14,22 +14,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    # @post = @user.posts.create(post_params)
-    @post = Post.new(post_params)
-
-    @post.author = helpers.simple_nkf(post_params[:author])
+    @post = current_user.posts.build(post_params)
     @post.body = helpers.simple_nkf(post_params[:body])
-    @post.generated_by = 'admin' if admin_signed_in?
-    @post.last_active_at = Time.now
+    @post.generated_by = admin_signed_in? ? 'admin' : 'user'
 
     if @post.save
-      Slack::PostCreatedNotifier.notify(
-        Slack::Template::PostCreatedMessage.format(@post)
-      ) unless admin_signed_in?
+      # Slack::PostCreatedNotifier.notify(
+      #   Slack::Template::PostCreatedMessage.format(@post)
+      # ) unless admin_signed_in?
 
       redirect_to @post
     else
@@ -40,10 +36,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:author, :body)
+    params.require(:post).permit(:body)
   end
 
-  def redirect_new_user
+  def sign_in_user
     unless user_signed_in?
       redirect_to new_user_registration_path
     end
