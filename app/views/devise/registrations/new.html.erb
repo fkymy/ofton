@@ -64,6 +64,11 @@
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
 
+            <div class="field">
+              <%= f.label :avatar %><br />
+              avatars
+            </div>
+
             <div class="form__submit">
               <%= f.button type: 'submit', :id => 'userFormBtn', :class => 'btn btn--primary' do %>
                 登録

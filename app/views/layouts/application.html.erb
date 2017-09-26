@@ -40,10 +40,10 @@
             <a href="/policy">ポリシー</a>
             <a href="/contact">お問い合わせ</a>
             <% if user_signed_in? %>
-              <a href="/users/sign_out">ログアウト</a>
+              <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
             <% else %>
-              <a href="/users/sign_up">かんたん登録</a>
-              <a href="/users/sign_in">ログイン</a>
+              <%= link_to "かんたん登録", new_user_registration_path %>
+              <%= link_to "ログイン", new_user_session_path %>
             <% end %>
           </div>
         </nav>
@@ -66,11 +66,11 @@
                 </a>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id=''>
-                <a href="/">
+                <%= link_to user_path(current_user) do %>
                   <div class="headerNav__icon">
                     <i data-feather="user"></i>
                   </div>
-                </a>
+                <% end %>
               </div>
             </div>
           </div>

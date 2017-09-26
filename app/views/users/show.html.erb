@@ -1,0 +1,80 @@
+<% if user_signed_in? %>
+  <div class="row mainMarginTop"></div>
+  <div class="row navMarginTop"></div>
+<% else  %>
+  <div class="row mainMarginTop"></div>
+<% end %>
+
+<main id="main" style="margin-bottom: '200px;">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div>
+        <div class="userProfile">
+          <div class="row start-xs">
+            <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+              <div class="userProfile__img">
+                <img alt="user icon" src="<%=@user.decorate.avatar%>" />
+              </div>
+            </div>
+            <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
+              <div class="userProfile__bd">
+                <div class="userProfile__name">
+                  <h1><%= @user.decorate.username %></h1>
+                </div>
+                <div class="userProfile__edit">
+                  <div class="btn btn--secondary">プロフィールを編集する</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="userProfile__footer">
+          <div class="row start-xs">
+            <div class="col-xs-12">
+              <p><%= @user.decorate.username %>の書込み：</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if @posts.any? %>
+  <ul class="postList">
+    <% @posts.each do |post| %>
+      <li class="postItem">
+        <div class="o-media">
+          <div class="row start-xs">
+            <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
+              <div class="o-media__img">
+                <Link to="/users/1">
+                  <img alt="user icon" src="http://localhost:3000/svg-animals-square/polar-square.svg" />
+                </Link>
+              </div>
+            </div>
+            <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11" style={{paddingLeft:'0.2rem'}}>
+              <div class="o-media__bd">
+                <div class="postContent">
+                  <div class="postContent__meta">
+                    <Link to="/users/1">
+                      <span class="postContent__author">コスモス</span>
+                    </Link>
+                    <span class="postContent__datetime">1時間前</span>
+                  </div>
+                  <Link to="/posts/1">
+                    <div class="postContent__body">
+                      <p>皆様おはようございます。今日は、日曜日ですね。どうやって、過ごされますか？1人ぽっち。家族と、好きな人と皆様各々でしょうね。私は、家族がいても1人ぽっちです。寂しいです。家族といっても形だけです。本当に1人ぽっちは、切なくて淋しいもんです。</p>
+                    </div>
+                    <div class="postContent__commentsCount">
+                      <span>コメント 3</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</main>
