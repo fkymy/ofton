@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # @post = @user.posts.create(post_params)
     @post = Post.new(post_params)
 
     @post.author = helpers.simple_nkf(post_params[:author])

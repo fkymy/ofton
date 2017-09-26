@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.body = helpers.simple_nkf(comment_params[:body])
     @comment.generated_by = 'admin' if admin_signed_in?
 
+    # use :touch instead
     @comment.post.last_active_at = Time.now
 
     if @comment.save && @comment.post.save
