@@ -1,5 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :post
+  belongs_to :user
 
   has_enumeration_for :generated_by, with: CommentGeneratedBy, create_helpers: { prefix: true }
 
