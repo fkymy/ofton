@@ -42,13 +42,12 @@
             <% if user_signed_in? %>
               <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
             <% else %>
-              <%= link_to "oftonに入る", new_user_registration_path %>
+              <%= link_to "ユーザー登録", new_user_registration_path %>
               <%= link_to "ログイン", new_user_session_path %>
             <% end %>
           </div>
         </nav>
         <% if user_signed_in? %>
-
           <div class="headerNav">
             <div class="row center-xs">
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id="nav-<%= is_active_path?(root_path) %>">

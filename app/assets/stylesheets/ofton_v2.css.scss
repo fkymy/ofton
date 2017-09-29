@@ -535,7 +535,7 @@ $original-pink: #ff9aed;
 }
 
 .postContent__body {
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .postContent__commentsCount {
@@ -782,8 +782,7 @@ $original-pink: #ff9aed;
 
   width: 100%;
   min-height: 6rem;
-  // height as state
-  // max height as 280px;
+  max-height: 280px;
   border-radius: 0;
   border-width: 0;
 
@@ -794,7 +793,7 @@ $original-pink: #ff9aed;
 
   color: inherit;
   font-size: 16px;
-  line-height: 1.3em;
+  line-height: 1.5em;
 
   user-select: text;
   flex-direction: column;
@@ -829,6 +828,7 @@ $original-pink: #ff9aed;
 
 .postShowComments {
   text-align: left;
+  margin-bottom: 30px;
 
   h2 {
     color: grey;
@@ -932,10 +932,8 @@ $original-pink: #ff9aed;
   border-image-width: initial;
 
   width: 100%;
-  // min-height: 6rem;
-
-  // height as state
-  // max height as 280px;
+  // height: 23px;
+  max-height: 80px;
   border-radius: 0;
   border-width: 0;
 

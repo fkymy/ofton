@@ -54,18 +54,18 @@
                     <div class="row start-xs">
                       <div class="col-xs-2">
                         <div class="o-media__img">
-                          <a href="#">
+                          <%= link_to user_path(post.user) do %>
                             <%= image_tag("animals/bear-square.svg", :class => "test", :alt => "user icon") %>
-                          </a>
+                          <% end %>
                         </div>
                       </div>
                       <div class="col-xs-10" style="padding-left: 0.2rem;">
                         <div class="o-media__bd">
                           <div class="postContent">
                             <div class="postContent__meta">
-                              <a href="#">
+                              <%= link_to user_path(post.user) do %>
                                 <span class="postContent__author"><%= post.decorate.author %></span>
-                              </a>
+                              <% end %>
                               <span class="postContent__datetime"><%= post.decorate.last_active_at %></span>
                             </div>
                             <div class="postContent__body">

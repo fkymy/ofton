@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require lib/autosize.min
 //= require react
 //= require react_ujs
 //= require components

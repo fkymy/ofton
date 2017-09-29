@@ -19,7 +19,7 @@
             <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
               <div class="userProfile__bd">
                 <div class="userProfile__name">
-                  <h1><%= @user.decorate.username %></h1>
+                  <h1><%= @user.username == "匿名" ? "匿名さんの投稿" : "#{@user.decorate.username}のページ" %></h1>
                 </div>
                 <!-- <div class="userProfile__edit">
                   <div class="btn btn--secondary">プロフィールを編集する</div>
@@ -31,7 +31,7 @@
         <div class="userProfile__footer">
           <div class="row start-xs">
             <div class="col-xs-12">
-              <p><%= @user.decorate.username %>の書込み：</p>
+              <p><%= @user.username == "匿名" ? "匿名の投稿一覧" : "#{@user.decorate.username}の書込み:" %></p>
             </div>
           </div>
         </div>

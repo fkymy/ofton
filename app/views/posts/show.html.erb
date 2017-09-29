@@ -13,18 +13,18 @@
           <div class="row start-xs">
             <div class="col-xs-2">
               <div class="o-media__img">
-                <a href="#">
+                <%= link_to user_path(@post.user) do %>
                   <%= image_tag("animals/lion-square.svg", :alt => "user icon") %>
-                </a>
+                <% end %>
               </div>
             </div>
             <div class="col-xs-10" style={{paddingLeft:'0.2rem'}}>
               <div class="o-media__bd">
                 <div class="postContent">
                   <div class="postContent__meta">
-                    <a href="#">
+                    <%= link_to user_path(@post.user) do %>
                       <span class="postContent__author"><%= @post.decorate.author %></span>
-                    </a>
+                    <% end %>
                     <span class="postContent__datetime"><%= @post.decorate.datetime %></span>
                   </div>
                   <div class="postContent__body">
@@ -40,8 +40,8 @@
         </div>
       </div>
       <div class="postShowComments">
-        <h2 class="postShowComments__heading">コメント</h2>
         <% if @comments.any? %>
+          <h2 class="postShowComments__heading">コメント</h2>
           <ul class="commentList">
             <% @comments.each do |comment| %>
               <li class="commentItem">
@@ -49,18 +49,18 @@
                   <div class="row start-xs">
                     <div class="col-xs-2">
                       <div class="o-media__img  --small">
-                        <a href="#">
+                        <%= link_to user_path(comment.user) do %>
                           <%= image_tag("animals/pig-square.svg", :alt => "comment user icon") %>
-                        </a>
+                        <% end %>
                       </div>
                     </div>
                     <div class="col-xs-10">
                       <div class="o-media__bd">
                         <div class="commentContent">
                           <div class="commentContent__meta">
-                            <Link to="/users/1">
+                            <%= link_to user_path(comment.user) do %>
                               <span class="commentContent__author"><%= comment.decorate.author %></span>
-                            </Link>
+                            <% end %>
                             <span class="commentContent__datetime"><%= comment.decorate.datetime %></span>
                           </div>
                           <div class="commentContent__body">
@@ -79,52 +79,10 @@
     </div>
   </div>
   <% if user_signed_in? %>
-    <div class="commentForm">
-      <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
-        <div class="row between-xs commentFormWrapper">
-          <div class="col-xs-9 commentForm__itemWrapper">
-            <div class="commentForm__form">
-              <%= f.text_area :body, id: "commentForm__textarea", placeholder: 'コメントする'%>
-            </div>
-          </div>
-          <div class="col-xs-3 commentForm__itemWrapper">
-            <div class="commentForm__item">
-              <div class="commentForm__submit">
-                <div id="btn-commentForm__submit">
-                  <%= f.button type: 'submit', :id => "btn-commentForm__submit", :class => 'btn btn--primary' do %>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f7fae9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                    </svg>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render :partial => "comment_form" %>
   <% else %>
-    <div class="commentForm">
-      <a href="/users/sign_up">
-        <div class="row between-xs commentFormWrapper">
-          <div class="col-xs-9 commentForm__itemWrapper">
-            <div class="commentForm__form">
-              <textarea id="commentForm__textarea" placeholder='コメントする'></textarea>
-            </div>
-          </div>
-          <div class="col-xs-3 commentForm__itemWrapper">
-            <div class="commentForm__item">
-              <div class="commentForm__submit">
-                <div id="btn-commentForm__submit" class="btn btn--primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f7fae9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
+    <%= link_to new_user_registration_path do %>
+      <%= render :partial => "comment_form" %>
+    <% end %>
   <% end %>
 </main>
