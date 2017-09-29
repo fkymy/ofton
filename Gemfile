@@ -59,6 +59,7 @@ gem 'rambulance'
 gem 'enumerate_it'
 gem 'devise'
 gem 'newrelic_rpm'
+gem 'jquery-infinite-pages'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

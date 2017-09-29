@@ -1294,11 +1294,22 @@ ul.thumbnails.image_picker_selector
   }
 }
 
-.reactPagination {
+.i-pagination {
+  color: white;
+  padding-top: 25px;
+  font-size: 1.1em;
 
-  padding-top: 30px;
-  padding-bottom: 15px;
+  a {
+    padding: 10px 14px 10px 14px;
+    background: #f98a7e;
+    border-radius: 5px;
+  }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.75px;
+  }
 }
+
 
 // static page
 .staticPage {

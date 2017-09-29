@@ -8,42 +8,7 @@
 <main id="main">
   <div class="row center-xs">
     <div class="col-xs-12 col-md-9 col-lg-6">
-      <div class="alpha">
-        <div class="row">
-          <div class="alphaContainer">
-            <div class="col-xs-3">
-              <div class="alpha__portrait">
-                <div class="alphaRabbitContainer">
-                  <div class="alphaRabbit__head">
-                    <div class="alphaRabbit__ear left">
-                      <div class="alphaRabbit__ear--inner"></div>
-                    </div>
-                    <div class="alphaRabbit__blink left"></div>
-                    <div class="alphaRabbit__blink right"></div>
-                    <div class="alphaRabbit__ear right">
-                      <div class="alphaRabbit__ear--inner"></div>
-                    </div>
-                    <div class="alphaRabbit__eye left">
-                      <div class="alphaRabbit__eye--glow"></div>
-                    </div>
-                    <div class="alphaRabbit__eye right">
-                      <div class="alphaRabbit__eye--glow"></div>
-                    </div>
-                    <div class="alphaRabbit__nose"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-9">
-              <div class="alpha__lede">
-                <div class="alpha__ledeText">
-                  <p>登録すると便利になるよ！<br />これからよろしくね。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'shared/alpha', locals: { lede_text: '登録すると便利になるよ！<br />これからよろしくね。'} %>
       <div class="userRegistration">
         <div class="userForm">
           <div class="userFormSection">

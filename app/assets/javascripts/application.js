@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require jquery.infinite-pages
 //= require lib/autosize.min
 //= require lib/image-picker.min
 //= require react

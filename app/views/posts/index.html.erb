@@ -8,83 +8,15 @@
 <main id="main">
   <div class="row center-xs">
     <div class="col-xs-12 col-md-9 col-lg-6">
-      <div class="alpha">
-        <div class="row">
-          <div class="alphaContainer">
-            <div class="col-xs-3">
-              <div class="alpha__portrait">
-                <div class="alphaRabbitContainer">
-                  <div class="alphaRabbit__head">
-                    <div class="alphaRabbit__ear left">
-                      <div class="alphaRabbit__ear--inner"></div>
-                    </div>
-                    <div class="alphaRabbit__blink left"></div>
-                    <div class="alphaRabbit__blink right"></div>
-                    <div class="alphaRabbit__ear right">
-                      <div class="alphaRabbit__ear--inner"></div>
-                    </div>
-                    <div class="alphaRabbit__eye left">
-                      <div class="alphaRabbit__eye--glow"></div>
-                    </div>
-                    <div class="alphaRabbit__eye right">
-                      <div class="alphaRabbit__eye--glow"></div>
-                    </div>
-                    <div class="alphaRabbit__nose"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-9">
-              <div class="alpha__lede">
-                <div class="alpha__ledeText">
-                  <p>投稿は被ってもOK！<br />寂しいなら頼っていいんだよ!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'shared/alpha', locals: { lede_text: '投稿は被ってもOK！<br />寂しいなら頼っていいんだよ!'} %>
       <section class="pageSection">
         <div class="homeFeed">
           <ul class="postList">
-            <% if @posts.any? %>
-              <% @posts.each do |post| %>
-                <li class="postItem">
-                  <div class="o-media">
-                    <div class="row start-xs">
-                      <div class="col-xs-2">
-                        <div class="o-media__img">
-                          <%= link_to user_path(post.user) do %>
-                            <%= image_tag(post.user.decorate.avatar, :class => "test", :alt => "user icon") %>
-                          <% end %>
-                        </div>
-                      </div>
-                      <div class="col-xs-10" style="padding-left: 0.2rem;">
-                        <div class="o-media__bd">
-                          <div class="postContent">
-                            <div class="postContent__meta">
-                              <%= link_to user_path(post.user) do %>
-                                <span class="postContent__author"><%= post.decorate.author %></span>
-                              <% end %>
-                              <span class="postContent__datetime"><%= post.decorate.last_active_at %></span>
-                            </div>
-                            <div class="postContent__body">
-                              <%= link_to post_path(post) do %>
-                                <p><%= simple_format(hbr(post.body)) %></p>
-                              <% end %>
-                            </div>
-                            <div class="postContent__commentsCount">
-                              <span>コメント <%= post.comments.size %></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
-            <% end %>
+            <%= render :partial => 'posts', :object => @posts %>
           </ul>
+          <p class="i-pagination">
+            <%= link_to_next_page(@posts, 'もっと見る', :remote => true) %>
+          </p>
         </div>
       </section>
       <div id="floatingContainer">
@@ -95,3 +27,18 @@
     </div>
   </div>
 </main>
+<script>
+  $(function() {
+    // Configure infinite table
+    return $('.postList').infinitePages({
+      debug: true,
+      context: '#main',
+      loading() {
+        return $(this).text('...');
+      },
+      error() {
+        return $(this).button('エラーが起こりました。');
+      }
+    });
+  });
+</script>
