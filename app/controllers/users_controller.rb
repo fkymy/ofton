@@ -2,6 +2,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = Post.all
+    @posts = @user.posts # and posts that are commented
   end
 end
