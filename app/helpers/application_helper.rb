@@ -7,4 +7,8 @@ module ApplicationHelper
     target = html_escape(target)
     target.gsub(/\r\n|\r|\n/, "<br />")
   end
+
+  def is_active_path?(path)
+    current_page?(path) ? "active" : ""
+  end
 end
