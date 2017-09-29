@@ -1006,7 +1006,6 @@ $original-pink: #ff9aed;
 .userForm input[type="search"],
 .userForm input[type="tel"],
 .userForm input[type="color"],
-.userForm select,
 .userForm textarea {
   padding: 0.5em 0.6em;
   display: inline-block;
@@ -1040,7 +1039,6 @@ $original-pink: #ff9aed;
 .userForm input[type="search"]:focus,
 .userForm input[type="tel"]:focus,
 .userForm input[type="color"]:focus,
-.userForm select:focus,
 .userForm textarea:focus {
   outline: 0;
   border-color: $color-primary;
@@ -1098,15 +1096,6 @@ $original-pink: #ff9aed;
 .userForm input[type="checkbox"]:focus:invalid:focus {
   outline-color: #e9322d;
 }
-.userForm select {
-  /* Normalizes the height; padding is not sufficient. */
-  height: 2.25em;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-.userForm select[multiple] {
-  height: auto;
-}
 .userForm label {
   margin: 0.5em 0 0.2em;
 }
@@ -1123,7 +1112,6 @@ $original-pink: #ff9aed;
   color: #333;
   border-bottom: 1px solid #e5e5e5;
 }
-
 
 .userForm .form__submit {
   margin-right: 0.2em;
@@ -1154,6 +1142,73 @@ $original-pink: #ff9aed;
   background: white;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+$thumbnail_padding:         3px;
+$thumbnail_margin:          12px;
+$thumbnail_border:          1px solid #DDD;
+$thumbnail_selected_color:  #08C;
+
+ul.thumbnails.image_picker_selector
+{
+  overflow:             auto;
+  list-style-image:     none;
+  list-style-position:  outside;
+  list-style-type:      none;
+  padding:              15px;
+  padding-bottom:       0px;
+  margin:               0px;
+  margin-left:          25px;
+
+  ul
+  {
+    overflow:             auto;
+    list-style-image:     none;
+    list-style-position:  outside;
+    list-style-type:      none;
+    padding:              0px;
+    margin:               0px;
+  }
+
+  li.group_title
+  {
+    float: none;
+  }
+
+  li
+  {
+    margin:   0px $thumbnail_margin $thumbnail_margin 0px;
+    float:    left;
+    width: 55px;
+    height: 55px;
+    .thumbnail
+    {
+      padding:  $thumbnail_padding;
+      border:   $thumbnail_border;
+      width: 100%;
+      height: 100%;
+      -webkit-user-select: none;
+      -moz-user-select:    none;
+      -ms-user-select:     none;
+      img
+      {
+        -webkit-user-drag: none;
+      }
+    }
+
+    .thumbnail.selected
+    {
+      background: $color-primary;
+    }
+  }
+}
+
+#user_avatar {
+  margin-top: 20px;
+}
+
+.userForm__avatar {
+  border-radius: 50%;
 }
 
 // -- Objects --

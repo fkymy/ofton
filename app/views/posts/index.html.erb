@@ -55,7 +55,7 @@
                       <div class="col-xs-2">
                         <div class="o-media__img">
                           <%= link_to user_path(post.user) do %>
-                            <%= image_tag("animals/bear-square.svg", :class => "test", :alt => "user icon") %>
+                            <%= image_tag(post.user.decorate.avatar, :class => "test", :alt => "user icon") %>
                           <% end %>
                         </div>
                       </div>

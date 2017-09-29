@@ -73,7 +73,19 @@
 
             <div class="field">
               <%= f.label :avatar %><br />
-              avatars
+              <select id="user_avatar" name="user[avatar]" class="image-picker show-html">
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/bear-square.svg" data-img-class="first" value="bear">くま</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/bunny-square.svg" value="bunny">うさぎ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/cat-square.svg" value="cat">ねこ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/fox-square.svg" value="fox">きつね</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/lion-square.svg" value="lion">ライオン</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/panda-square.svg" value="panda">パンダ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/pig-square.svg" value="pig">ブタ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/polar-square.svg" value="polar">ほっきょくぐま</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/raccoon-square.svg" value="raccoon">たぬき</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/rat-square.svg" value="rat">ねずみ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/tiger-square.svg" value="tiger">とら</option>
+              </select>
             </div>
 
             <div class="form__submit">
@@ -94,3 +106,8 @@
     </div>
   </div>
 </main>
+<script>
+  $("select").imagepicker({
+    show_label: false
+  });
+</script>

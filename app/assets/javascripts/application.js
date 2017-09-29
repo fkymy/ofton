@@ -15,6 +15,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require lib/autosize.min
+//= require lib/image-picker.min
 //= require react
 //= require react_ujs
 //= require components
