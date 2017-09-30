@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
     @comment.generated_by = admin_signed_in? ? 'admin' : 'user'
 
     if @comment.save
+      ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user)
+
       # Slack::CommentCreatedNotifier.notify(
       #   Slack::Template::CommentCreatedMessage.format(@comment)
       # ) unless admin_signed_in?

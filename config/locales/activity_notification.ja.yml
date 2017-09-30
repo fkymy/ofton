@@ -1,0 +1,12 @@
+ja:
+  notification:
+    user:
+      comment:
+        post:
+          text: "<p>%{notifier_name} posted comments to your article %{article_title}</p>"
+        reply:
+          text: "<p>%{notifier_name} and %{group_member_count} other users replied for your comments</p>"
+    admin:
+      article:
+        post:
+          text: '[Admin] Article has been created'

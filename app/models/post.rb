@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :commented_users, through: :comments, source: :user
   belongs_to :user
 
   has_enumeration_for :generated_by, with: PostGeneratedBy, create_helpers: { prefix: true }

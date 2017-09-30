@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   devise_for :users
+  notify_to :users, with_devise: :users
 
   devise_for :admins,
     controllers: {

@@ -57,12 +57,12 @@
                   </div>
                 <% end %>
               </div>
-              <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-'>
-                <a href="/">
+              <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_notifications_path(current_user)) %>'>
+                <%= link_to user_notifications_path(current_user) do %>
                   <div class="headerNav__icon">
                     <i data-feather="heart"></i>
                   </div>
-                </a>
+                <% end %>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_path(current_user)) %>'>
                 <%= link_to user_path(current_user) do %>
