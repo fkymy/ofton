@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :commented_posts, through: :comments, source: :post
 
   # devise without email
   # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-sign-in-with-something-other-than-their-email-address
@@ -39,3 +40,5 @@ end
 # Table name: users
 #
 # id             :integer          not null, primary key
+# username       :string           not null
+# avatar         :string           not null, default: 'bear'

@@ -24,9 +24,9 @@ class PostsController < ApplicationController
     @post.generated_by = admin_signed_in? ? 'admin' : 'user'
 
     if @post.save
-      # Slack::PostCreatedNotifier.notify(
-      #   Slack::Template::PostCreatedMessage.format(@post)
-      # ) unless admin_signed_in?
+      Slack::PostCreatedNotifier.notify(
+        Slack::Template::PostCreatedMessage.format(@post)
+      ) unless admin_signed_in?
 
       redirect_to @post
     else
