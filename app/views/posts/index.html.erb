@@ -24,11 +24,19 @@
           </p>
         </div>
       </section>
-      <div id="floatingContainer">
-        <%= link_to new_post_path, class: "floatingAction__item" do %>
-          <%= image_tag "talk-logo.png" %>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <div id="floatingContainer">
+          <%= link_to new_post_path, class: "floatingAction__item" do %>
+            <%= image_tag "talk-logo.png" %>
+          <% end %>
+        </div>
+      <% else %>
+        <div id="floatingContainer">
+          <%= link_to new_user_registration_path, class: "floatingAction__item" do %>
+            <%= image_tag "talk-logo.png" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>
