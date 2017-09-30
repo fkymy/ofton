@@ -22,7 +22,7 @@ class PostDecorator < ApplicationDecorator
     if object.updated_at > 1.week.ago
       "#{h.time_ago_in_words(object.updated_at)}前"
     else
-      l(object.updated_at, format: :long)
+      object.updated_at.strftime('%Y年%m月%d日 %H:%M')
     end
   end
 end

@@ -17,7 +17,4 @@
 //= require jquery.infinite-pages
 //= require lib/autosize.min
 //= require lib/image-picker.min
-//= require react
-//= require react_ujs
-//= require components
 //= require_tree .
