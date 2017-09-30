@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
+  devise_for :users
+  notify_to :users, with_devise: :users
+
   devise_for :admins,
     controllers: {
       sessions: 'admin/sessions'
@@ -25,6 +28,8 @@ Rails.application.routes.draw do
   resources :posts, except: [:edit, :update, :delete], concerns: :paginatable do
     resources :comments, only: [:create]
   end
+
+  resources :users, only: [:show]
 
   namespace :admin do
     root 'dashboard#index'

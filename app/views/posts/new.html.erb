@@ -1,43 +1,54 @@
-<div class="entries">
-  <div class="entries__form">
-    <div class="form">
-      <%= form_for(@post, html: { class: "form-stacked" }) do |f| %>
-        <% if @post.errors.any? %>
-          <div class="form-section">
-            <div class="form-message danger">
-              <%# <%= pluralize(@post.errors.count, "error") %>
-              <ul>
-                <% @post.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
+<script>
+  $(function() {
+    $('#header').hide();
+  });
+</script>
+
+<%= form_for(@post) do |f| %>
+  <div class="postForm">
+    <div class="row center-xs">
+      <div class="col-xs-12">
+        <div class="postFormHeader">
+          <div class="row between-xs postFormHeaderWrapper">
+            <div class="col-xs-2 postFormHeader__itemWrapper">
+              <%= link_to :back do %>
+                <div class="postFormHeader__item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fb9d6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-xs-3 col-sm-2 col-md-1 postFormHeader__itemWrapper">
+              <div class="postFormHeader__item">
+                <%= f.button type: 'submit', :class => 'btn btn--primary postForm__submit' do %>
+                  投稿
                 <% end %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-        <div class="form-section">
-          <div class="form__item">
-            <div class="form__label">
-              <%= f.label :author %>
-            </div>
-            <div class="form__text-field">
-              <%= f.text_field :author, class: "input--1", placeholder: 'ニックネーム' %>
-            </div>
-          </div>
-          <div class="form__item">
-            <div class="form__label">
-              <%= f.label :body %>
-            </div>
-            <div class="form__textarea">
-              <%= f.text_area :body, class: "input--1", placeholder: '今の寂しさや悩み、ふと思ったことなどを投稿しましょう'%>
+              </div>
             </div>
           </div>
         </div>
-        <div class="form__submit">
-          <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
-            投稿する
-          <% end %>
+        <div class="postFormMain">
+          <div class="postFormMain__form">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="postFormMain__img">
+                  <%= image_tag(current_user.decorate.avatar, :alt => "user icon") %>
+                </div>
+              </div>
+              <div class="col-xs-9">
+                <div class="postFormMain__bd">
+                  <textarea id="postFormMain__textarea" placeholder="体験談や今の寂しさなど、気軽に投稿してみよう!" name="post[body]"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
+<script>
+  autosize(document.querySelectorAll('textarea'));
+</script>

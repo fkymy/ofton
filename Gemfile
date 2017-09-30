@@ -45,6 +45,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'react-rails'
 
 gem 'rails-i18n', '~> 5.0.0' # For 5.0.x and 5.1.x
 gem 'dotenv-rails'
@@ -58,6 +59,8 @@ gem 'rambulance'
 gem 'enumerate_it'
 gem 'devise'
 gem 'newrelic_rpm'
+gem 'jquery-infinite-pages'
+gem 'activity_notification'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

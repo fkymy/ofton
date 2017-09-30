@@ -1,70 +1,88 @@
-<div class="entries">
-  <div class="entries__item">
-    <div class="media">
-      <div class="media__img">
-        <%= image_tag(@post.decorate.avatar, :alt => "user icon") %>
-      </div>
-      <div class="media__bd">
-        <div>
-          <div class="post-content__meta">
-            <span class="post-content__author"><%= @post.decorate.author %></span>
-            <span class="post-content__datetime"><%= @post.decorate.datetime %></span>
-          </div>
-          <div class="post-content__body">
-            <%= simple_format(hbr(@post.body)) %>
-          </div>
-          <div class="post-content__comments-count">
-            <span>コメント <%= @post.comments.size %></span>
+<% if user_signed_in? %>
+  <div class="row mainMarginTop"></div>
+  <div class="row navMarginTop"></div>
+<% else  %>
+  <div class="row mainMarginTop"></div>
+<% end %>
+
+<main id="main" style="margin-bottom: '200px;">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="postShow">
+        <div class="o-media">
+          <div class="row start-xs">
+            <div class="col-xs-2">
+              <div class="o-media__img">
+                <%= link_to user_path(@post.user) do %>
+                  <%= image_tag(@post.user.decorate.avatar, :alt => "user icon") %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-xs-10" style={{paddingLeft:'0.2rem'}}>
+              <div class="o-media__bd">
+                <div class="postContent">
+                  <div class="postContent__meta">
+                    <%= link_to user_path(@post.user) do %>
+                      <span class="postContent__author"><%= @post.decorate.author %></span>
+                    <% end %>
+                    <span class="postContent__datetime"><%= @post.decorate.datetime %></span>
+                  </div>
+                  <div class="postContent__body">
+                    <p><%= simple_format(hbr(@post.body)) %></p>
+                  </div>
+                  <div class="postContent__commentsCount">
+                    <span>コメント <%= @post.comments.size %></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="entries__comments">
-    <% if @comments.any? %>
-      <ul class="comments__list">
-        <% @comments.each do |comment| %>
-          <li class="comments__item">
-            <div class="media">
-              <div class="media__img --small">
-                <%= image_tag(comment.decorate.avatar, :alt => "commenter icon") %>
-              </div>
-              <div class="media__bd">
-                <div class="comment-content__meta">
-                  <span class="comment-content__author"><%= comment.decorate.author %></span>
-                  <span class="comment-content__datetime"><%= comment.decorate.datetime %></span>
+      <div class="postShowComments">
+        <% if @comments.any? %>
+          <h2 class="postShowComments__heading">コメント</h2>
+          <ul class="commentList">
+            <% @comments.each do |comment| %>
+              <li class="commentItem">
+                <div class="o-media">
+                  <div class="row start-xs">
+                    <div class="col-xs-2">
+                      <div class="o-media__img  --small">
+                        <%= link_to user_path(comment.user) do %>
+                          <%= image_tag(comment.user.decorate.avatar, :alt => "user icon") %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="col-xs-10">
+                      <div class="o-media__bd">
+                        <div class="commentContent">
+                          <div class="commentContent__meta">
+                            <%= link_to user_path(comment.user) do %>
+                              <span class="commentContent__author"><%= comment.decorate.author %></span>
+                            <% end %>
+                            <span class="commentContent__datetime"><%= comment.decorate.datetime %></span>
+                          </div>
+                          <div class="commentContent__body">
+                            <p><%= simple_format(hbr(comment.body)) %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="comment-content__body">
-                  <p><%= simple_format(hbr(comment.body)) %></p>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <div class="comments__form">
-      <div class="form">
-        <%= form_for([@post, @post.comments.build], html: { class: "form-stacked" }) do |f| %>
-          <div class="form-section">
-            <div class="form__item">
-              <div class="form__text-field">
-                <%= f.text_field :author, class: "input--1", placeholder: 'ニックネーム' %>
-              </div>
-            </div>
-            <div class="form__item">
-              <div class="form__textarea">
-                <%= f.text_area :body, class: "input--1", placeholder: 'コメント'%>
-              </div>
-            </div>
-          </div>
-          <div class="form__submit">
-            <%= f.button type: 'submit', :class => 'btn btn--primary' do %>
-              コメントする
+              </li>
             <% end %>
-          </div>
+          </ul>
         <% end %>
       </div>
     </div>
   </div>
-</div>
+  <% if user_signed_in? %>
+    <%= render :partial => "comment_form" %>
+  <% else %>
+    <%= link_to new_user_registration_path do %>
+      <%= render :partial => "comment_form" %>
+    <% end %>
+  <% end %>
+</main>

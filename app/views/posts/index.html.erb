@@ -1,27 +1,49 @@
-<div id="floating-container">
-  <%= link_to new_post_path, class: "floating-action__item" do %>
-    <%= image_tag "talk-logo.png" %>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <div class="row mainMarginTop"></div>
+  <div class="row navMarginTop"></div>
+<% else  %>
+  <div class="row mainMarginTop"></div>
+<% end %>
 
-<div class="module">
-  <div class="module__body">
-    <div class="about">
-      <div class="about__lede">
-        <p class="about__lede-text">寂しい、辛い、誰かと<br>話したい時のコミュニティ。</p>
-      </div>
-      <div class="about__action">
-        <a href="<%= about_path %>" class="btn btn--secondary">初めての方はこちらへ</a>
-      </div>
-    </div>
-    <div class="entries">
-      <ul class="entries__list">
-        <%= render 'post_list', posts: @recents %>
-        <%= render 'post_list', posts: @posts %>
-      </ul>
-      <div class="entries__pagination">
-        <%= paginate @posts %>
+<main id="main">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <% if user_signed_in? %>
+        <%= render partial: 'shared/alpha', locals: { lede_text: current_user.decorate.username + 'ですね！<br />寂しいなら頼ってもいいんだよ!' } %>
+      <% else %>
+        <%= render partial: 'shared/alpha', locals: { lede_text: '投稿はかぶってもOK! <br />寂しいなら頼ってもいいんだよ!' } %>
+      <% end %>
+
+      <section class="pageSection">
+        <div class="homeFeed">
+          <ul class="postList">
+            <%= render :partial => 'posts', :object => @posts %>
+          </ul>
+          <p class="i-pagination">
+            <%= link_to_next_page(@posts, 'もっと見る', :remote => true) %>
+          </p>
+        </div>
+      </section>
+      <div id="floatingContainer">
+        <%= link_to new_post_path, class: "floatingAction__item" do %>
+          <%= image_tag "talk-logo.png" %>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
+</main>
+<script>
+  $(function() {
+    // Configure infinite table
+    return $('.postList').infinitePages({
+      debug: true,
+      context: '#main',
+      loading() {
+        return $(this).text('...');
+      },
+      error() {
+        return $(this).button('エラーが起こりました。');
+      }
+    });
+  });
+</script>

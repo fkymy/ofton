@@ -1,29 +1,78 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<% if user_signed_in? %>
+  <div class="row mainMarginTop"></div>
+  <div class="row navMarginTop"></div>
+<% else  %>
+  <div class="row mainMarginTop"></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<main id="main">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <%= render partial: 'shared/alpha', locals: { lede_text: '登録すると便利になるよ！<br />これからよろしくね。'} %>
+      <div class="userRegistration">
+        <div class="userForm">
+          <div class="userFormSection">
+            <div class="userFormMessage danger">
+              <%= devise_error_messages! %>
+            </div>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+            <div class="field">
+              <%= f.label :username %><br />
+              <%= f.text_field :username, autofocus: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :avatar %><br />
+              <select id="user_avatar" name="user[avatar]" class="image-picker show-html">
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/bear-square.svg" data-img-class="first" value="bear">くま</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/bunny-square.svg" value="bunny">うさぎ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/cat-square.svg" value="cat">ねこ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/fox-square.svg" value="fox">きつね</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/lion-square.svg" value="lion">ライオン</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/panda-square.svg" value="panda">パンダ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/pig-square.svg" value="pig">ブタ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/polar-square.svg" value="polar">ほっきょくぐま</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/raccoon-square.svg" value="raccoon">たぬき</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/rat-square.svg" value="rat">ねずみ</option>
+                <option data-img-class="userForm__avatar" data-img-src="/assets/animals/tiger-square.svg" value="tiger">とら</option>
+              </select>
+            </div>
+
+            <div class="form__submit">
+              <%= f.button type: 'submit', :id => 'userFormBtn', :class => 'btn btn--primary' do %>
+                登録
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <!-- <div class="userDeviseLinks">
+          <div class="row start-xs">
+            <div class="col-xs-12">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  $("select").imagepicker({
+    show_label: false
+  });
+</script>

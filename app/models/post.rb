@@ -1,8 +1,11 @@
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :commented_users, through: :comments, source: :user
+  belongs_to :user
 
   has_enumeration_for :generated_by, with: PostGeneratedBy, create_helpers: { prefix: true }
 
+  validates :user_id, presence: true
   validates :body, presence: true
 
   scope :order_by_default, -> {
@@ -14,7 +17,7 @@ class Post < ApplicationRecord
   }
 
   scope :order_by_last_active_at, -> {
-    order(last_active_at: :desc)
+    order(updated_at: :desc)
   }
 end
 
@@ -26,7 +29,6 @@ end
 #  author         :string
 #  body           :text             not null
 #  generated_by   :integer          default("0")
-#  last_active_at :datetime         default(Time.now)
 #
 # Indexes
 #

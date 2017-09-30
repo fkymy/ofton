@@ -4,15 +4,17 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
+    @comment.user = current_user
 
-    @comment.author = helpers.simple_nkf(comment_params[:author])
     @comment.body = helpers.simple_nkf(comment_params[:body])
-    @comment.generated_by = 'admin' if admin_signed_in?
+    @comment.generated_by = admin_signed_in? ? 'admin' : 'user'
 
-    @comment.post.last_active_at = Time.now
+    if @comment.save
+      ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user)
 
-    if @comment.save && @comment.post.save
-      Slack::CommentCreatedNotifier.notify(Slack::Template::CommentCreatedMessage.format(@comment)) unless admin_signed_in?
+      Slack::CommentCreatedNotifier.notify(
+        Slack::Template::CommentCreatedMessage.format(@comment)
+      ) unless admin_signed_in?
 
       redirect_to post_path(@post)
     else

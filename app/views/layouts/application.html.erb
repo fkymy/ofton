@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ofton</title>
+  <title>ofton | 寂しいがなくなるコミュニテイ</title>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
   <!-- <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" /> -->
   <% if Rails.env.production? %>
     <%= render 'shared/scripts/google_analytics' %>
@@ -17,62 +19,96 @@
 <body>
 <div id="container">
   <div id="flex-wrapper">
-  <header id="header">
-    <div class="navbar">
-      <div class="navbar-center">
-        <div class="navbar-item">
-          <div class="app-logo">
-            <%= link_to root_path do %>
-              <%= image_tag 'app-logo.png' %>
-            <% end %>
+    <header id="header">
+      <div class="header">
+        <div class="headerMain">
+          <div class="headerMain__brand">
+            <a class="" href="/"><span>ofton</span></a>
+          </div>
+          <div class="headerMain__toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f7fae9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
           </div>
         </div>
+        <nav class="headerMain__menu">
+          <div class="headerMain__links">
+            <a href="/">トップ</a>
+            <a href="/about">oftonについて</a>
+            <a href="/policy">ポリシー</a>
+            <a href="/contact">お問い合わせ</a>
+            <% if user_signed_in? %>
+              <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to "ユーザー登録", new_user_registration_path %>
+              <%= link_to "ログイン", new_user_session_path %>
+            <% end %>
+          </div>
+        </nav>
+        <% if user_signed_in? %>
+          <div class="headerNav">
+            <div class="row center-xs">
+              <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id="nav-<%= is_active_path?(root_path) %>">
+                <%= link_to root_path do %>
+                  <div class="headerNav__icon">
+                    <i data-feather="home"></i>
+                  </div>
+                <% end %>
+              </div>
+              <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_notifications_path(current_user)) %>'>
+                <%= link_to user_notifications_path(current_user) do %>
+                  <div class="headerNav__icon">
+                    <i data-feather="heart"></i>
+                  </div>
+                <% end %>
+              </div>
+              <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_path(current_user)) %>'>
+                <%= link_to user_path(current_user) do %>
+                  <div class="headerNav__icon">
+                    <i data-feather="user"></i>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <div class="headerNav noUser"></div>
+        <% end %>
       </div>
-    </div>
-  </header>
-  <% if admin_signed_in? %>
-    <div class="app-admin-sign">
-      ADMIN VIEW
-    </div>
-  <% end %>
-  <main id="main">
-    <div class="alpha">
-      <div class="alpha__lede">
-        <p class="alpha__lede-text">
-          投稿は被ってもOK！<br>
-          体験談や今の寂しさなど、気軽に投稿してみよう!
-        </p>
-      </div>
-    </div>
+    </header>
+
     <%= yield %>
-  </main>
-  <aside class="aside" id="sidebar">
-  </aside>
-  <aside class="aside" id="sidebar-2">
-  </aside>
-  <div id="footer">
-      <div class="sns-box-wrapper">
-        <p class="sns-box__msg">oftonをフォローしよう！</p>
-        <ul class="sns-box__list">
-          <li class="sns-box__item">
-            <a class="sns-box__item--twitter" href="//twitter.com/chacha_menhera" target="_blank">
-              <span class="fa fa-twitter fa-3x"></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    <div class="footer-links">
-      <ul class="footer-links__list">
-        <li><%= link_to 'トップ', root_path %></li>
-        <li><%= link_to 'oftonについて', about_path %></li>
-        <li><%= link_to 'お問い合わせ', contact_path %></li>
-        <li><%= link_to 'プライバシーポリシー', policy_path %></li>
-        <li><%= link_to '利用規約', terms_path %></li>
-      </ul>
+
+    <div id="footer">
+      <footer role='contentinfo' class="footer__contentinfo">&copy; 2017 ofton project.</footer>
     </div>
-    <footer role='contentinfo' class="footer__contentinfo">&copy; 2017 ofton project.</footer>
-  </div>
   </div>
 </div>
 </body>
+<script>
+  $(function() {
+    feather.replace({
+      class: '',
+      'stroke-width': 2,
+      stroke: '#657786',
+      width: 22,
+      height: 22
+    });
+  });
+
+  $('.headerMain__toggle').on('click', function() {
+    var linksElement = document.querySelector('.headerMain__links');
+    var navElement = document.querySelector('.headerNav');
+
+    if (linksElement.style.display == 'block') {
+      linksElement.style.display = 'none';
+      navElement.style.display = 'block';
+    } else {
+      navElement.style.display = 'none';
+      linksElement.style.display = 'block';
+    }
+  });
+</script>
 </html>

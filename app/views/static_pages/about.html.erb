@@ -1,8 +1,18 @@
-<div class="page about-page">
-  <%= image_tag 'about-01.jpg', :class => 'about-page__img' %>
-  <div class="page-static">
-    <section>
-      <p style="font-size: 12px; text-align: center;">私たちはユーザー様に寄り添う形でサービスの発展を目指します。</p>
-    </section>
+<% if user_signed_in? %>
+  <div class="row mainMarginTop"></div>
+  <div class="row navMarginTop"></div>
+<% else  %>
+  <div class="row mainMarginTop"></div>
+<% end %>
+
+<main id="main">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="staticPage">
+        <section>
+          <p>Aboutページ</p>
+        </section>
+      </div>
+    </div>
   </div>
-</div>
+</main>
