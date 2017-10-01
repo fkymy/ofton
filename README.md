@@ -112,9 +112,12 @@ bin/bundle install --path vendor/bundle --jobs 4
 bin/rails server
 ```
 
+```
 rake tmp:cache:clear
-bundle exec rake assets:precompile RAILS_ENV=production
-bundle exec rails c -e production
 
+bundle exec rake assets:precompile RAILS_ENV=production
+
+bundle exec rails c -e production
+```
 ### Test
 https://gist.github.com/kyletcarlson/6234923
