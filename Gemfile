@@ -11,20 +11,21 @@ gem 'puma', '~> 3.7'
 
 group :test do
   gem 'capybara'
-  gem 'rspec-rails'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'timecop'
-  gem 'faker'
   gem 'poltergeist'
 end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
-
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'timecop'
+  gem 'faker'
 
   gem 'selenium-webdriver'
 end

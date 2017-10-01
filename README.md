@@ -1,6 +1,3 @@
-## ofton-rails
-
-
 ## Ideas
 
 ### doctrine
@@ -80,9 +77,8 @@ source ~/.bash_profile
 ```
 rbenv install 2.3.1
 rbenv rehash #今は必要ないらしい
-rbenv global 2.3.1
+rbenv global 2.3.1 # or locally
 ```
-or localで...
 
 ### bundler
 
@@ -115,3 +111,10 @@ https://github.com/yshkd/ofton-rails/issues/2
 bin/bundle install --path vendor/bundle --jobs 4
 bin/rails server
 ```
+
+rake tmp:cache:clear
+bundle exec rake assets:precompile RAILS_ENV=production
+bundle exec rails c -e production
+
+### Test
+https://gist.github.com/kyletcarlson/6234923
