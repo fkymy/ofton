@@ -8,6 +8,9 @@ class Admin < ApplicationRecord
             presence: true,
             length: { maximum: 191 }
 
+  validates :email,
+            presence: true
+
   validates :slack_id,
             length: { maximum: 191 }
 end

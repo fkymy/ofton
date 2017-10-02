@@ -121,3 +121,5 @@ bundle exec rails c -e production
 ```
 ### Test
 https://gist.github.com/kyletcarlson/6234923
+
+https://robots.thoughtbot.com/how-we-test-rails-applications
