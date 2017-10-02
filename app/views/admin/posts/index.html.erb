@@ -7,7 +7,6 @@
         <th>投稿者</th>
         <th>内容</th>
         <th>コメント数</th>
-        <th>generated_by</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +16,6 @@
           <td><%= post.author %></td>
           <td><%= post.body %></td>
           <td><%= post.comments.size %></td>
-          <td><%= post.generated_by %></td>
         </tr>
       <% end %>
     </tbody>
