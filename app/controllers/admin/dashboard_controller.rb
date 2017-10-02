@@ -10,6 +10,6 @@ class Admin::DashboardController < ApplicationController
     @users_all = User.all.size
     @users_week = User.where("created_at >= ?", 7.days.ago).size
 
-    @data = KpiManager.fetch_data
+    @data = KpiManager.curate_data
   end
 end

@@ -37,11 +37,8 @@
       <tr>
         <th>期間</th>
         <th>投稿数（全部）</th>
-        <th>投稿数（本物のみ）</th>
         <th>コメント数（全部）</th>
-        <th>コメント数（本物のみ）</th>
         <th>コメント / 投稿（全部）</th>
-        <th>ユニーク書込者（本物のみ）</th>
       </tr>
     </thead>
     <tbody>
@@ -49,11 +46,8 @@
         <tr>
           <th scope="row"><%= key %></th>
           <td><%= data_value['all_posts'] %></td>
-          <td><%= data_value['stranger_posts'] %></td>
           <td><%= data_value['all_comments'] %></td>
-          <td><%= data_value['stranger_comments'] %></td>
           <td><%= data_value['comments_per_post'] %></td>
-          <td><%= data_value['strangers'] %></td>
         </tr>
       <% end %>
     </tbody>
