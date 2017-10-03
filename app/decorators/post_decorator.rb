@@ -13,7 +13,7 @@ class PostDecorator < ApplicationDecorator
     if object.created_at > 1.week.ago
       "#{h.time_ago_in_words(object.created_at)}前"
     else
-      l(object.created_at, format: :long)
+      object.created_at.strftime('%Y年%m月%d日 %H:%M')
     end
   end
 
