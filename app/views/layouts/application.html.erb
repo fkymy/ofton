@@ -22,10 +22,10 @@
     <header id="header">
       <div class="header">
         <div class="headerMain">
-          <div class="headerMain__brand">
+          <div class="headerMain__brand noSelect">
             <a class="" href="/"><span>ofton</span></a>
           </div>
-          <div class="headerMain__toggle">
+          <div class="headerMain__toggle noSelect">
             <%= image_tag('header-burger.svg', :alt => "header burger") %>
           </div>
         </div>
@@ -47,21 +47,21 @@
           <div class="headerNav">
             <div class="row center-xs">
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id="nav-<%= is_active_path?(root_path) %>">
-                <%= link_to root_path do %>
+                <%= link_to root_path, :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="home"></i>
                   </div>
                 <% end %>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_notifications_path(current_user)) %>'>
-                <%= link_to user_notifications_path(current_user) do %>
+                <%= link_to user_notifications_path(current_user), :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="heart"></i>
                   </div>
                 <% end %>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_path(current_user)) %>'>
-                <%= link_to user_path(current_user) do %>
+                <%= link_to user_path(current_user), :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="user"></i>
                   </div>
