@@ -1,9 +1,4 @@
-<% if user_signed_in? %>
-  <div class="row mainMarginTop"></div>
-  <div class="row navMarginTop"></div>
-<% else  %>
-  <div class="row mainMarginTop"></div>
-<% end %>
+<%= render partial: 'shared/margin_top' %>
 
 <main id="main" style="margin-bottom: '200px;">
   <div class="row center-xs">

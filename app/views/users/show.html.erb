@@ -1,9 +1,4 @@
-<% if user_signed_in? %>
-  <div class="row mainMarginTop"></div>
-  <div class="row navMarginTop"></div>
-<% else  %>
-  <div class="row mainMarginTop"></div>
-<% end %>
+<%= render partial: 'shared/margin_top' %>
 
 <main id="main" style="margin-bottom: '200px;">
   <div class="row center-xs">
@@ -59,7 +54,7 @@
                           <span class="postContent__datetime"><%= post.decorate.last_active_at %></span>
                         </div>
                         <div class="postContent__body">
-                          <%= link_to post_path(post) do %>
+                          <%= link_to post_path(post), class: 'noSelect' do %>
                             <p><%= simple_format(hbr(post.body)) %></p>
                           <% end %>
                         </div>
