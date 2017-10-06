@@ -11,9 +11,7 @@
 
       <section class="pageSection">
         <div class="homeFeed">
-          <ul class="postList">
-            <%= render :partial => 'posts', :object => @posts %>
-          </ul>
+          <%= render :partial => 'posts', :object => @posts %>
           <p class="i-pagination">
             <%= link_to_next_page(@posts, 'もっと見る', :remote => true) %>
           </p>
