@@ -5,12 +5,8 @@
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
-  <!-- <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" /> -->
   <% if Rails.env.production? %>
     <%= render 'shared/scripts/google_analytics' %>
     <%= render 'shared/scripts/hotjar' %>
@@ -73,6 +69,7 @@
           <div class="headerNav noUser"></div>
         <% end %>
       </div>
+      <%= javascript_include_tag 'header' %>
     </header>
 
     <%= yield %>
@@ -83,5 +80,4 @@
   </div>
 </div>
 </body>
-<%= javascript_include_tag 'header' %>
 </html>
