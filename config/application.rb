@@ -14,8 +14,7 @@ module OftonRails
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local # activerecord timezone
 
-    # add precompile target
-    config.assets.precompile += %w(application.css)
+    config.middleware.use Rack::Deflater
 
     config.generators do |g|
       g.assets false
