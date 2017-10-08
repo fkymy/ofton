@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.body = helpers.simple_nkf(comment_params[:body])
 
     if @comment.save
-      ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user)
+      ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user, group: @comment.post)
 
       Slack::CommentCreatedNotifier.notify(
         Slack::Template::CommentCreatedMessage.format(@comment)

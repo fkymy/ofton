@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :commented_users, through: :comments, source: :user
   belongs_to :user
 
+  acts_as_notification_group printable_name: ->(post) { "投稿" }
   # has_enumeration_for :generated_by, with: PostGeneratedBy, create_helpers: { prefix: true }
 
   validates :user_id, presence: true
@@ -19,6 +20,10 @@ class Post < ApplicationRecord
   scope :order_by_last_active_at, -> {
     order(updated_at: :desc)
   }
+
+  def title
+    # cut out title here
+  end
 end
 
 # == Schema Information

@@ -3,10 +3,7 @@ class PostsController < ApplicationController
   before_action :sign_in_user, only: [:new, :create]
 
   def index
-    #@recents = Post.since(24.hours.ago).order_by_default
-    #@posts = Post.all.joins(:comments).where.not(created_at: 24.hours.ago..Time.now).order_by_last_active_at.distinct.page(params[:page])
     @posts = Post.all.order_by_last_active_at.includes(:user).page(params[:page])
-    # has_notif? true or false
   end
 
   def show

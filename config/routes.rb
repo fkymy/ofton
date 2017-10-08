@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   devise_for :users
-  notify_to :users, with_devise: :users
+  notify_to :users,
+    with_devise: :users,
+    controller: 'users/notifications_with_devise'
 
   devise_for :admins,
     controllers: {
