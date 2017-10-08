@@ -17,4 +17,4 @@
 //= require jquery.infinite-pages
 //= require lib/autosize.min
 //= require lib/image-picker.min
-//= require_tree .
+//= require lib/feather.min.js

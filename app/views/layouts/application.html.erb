@@ -5,14 +5,10 @@
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
-  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <% if Rails.env.production? %>
     <%= render 'shared/scripts/google_analytics' %>
-    <%= render 'shared/scripts/hotjar' %>
   <% end %>
 </head>
 <body>
@@ -21,15 +17,11 @@
     <header id="header">
       <div class="header">
         <div class="headerMain">
-          <div class="headerMain__brand">
+          <div class="headerMain__brand noSelect">
             <a class="" href="/"><span>ofton</span></a>
           </div>
-          <div class="headerMain__toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f7fae9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+          <div class="headerMain__toggle noSelect">
+            <%= image_tag('header-burger.svg', :alt => "header burger") %>
           </div>
         </div>
         <nav class="headerMain__menu">
@@ -50,21 +42,21 @@
           <div class="headerNav">
             <div class="row center-xs">
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id="nav-<%= is_active_path?(root_path) %>">
-                <%= link_to root_path do %>
+                <%= link_to root_path, :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="home"></i>
                   </div>
                 <% end %>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_notifications_path(current_user)) %>'>
-                <%= link_to user_notifications_path(current_user) do %>
+                <%= link_to user_notifications_path(current_user), :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="heart"></i>
                   </div>
                 <% end %>
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_path(current_user)) %>'>
-                <%= link_to user_path(current_user) do %>
+                <%= link_to user_path(current_user), :class => 'noSelect' do %>
                   <div class="headerNav__icon">
                     <i data-feather="user"></i>
                   </div>
@@ -86,28 +78,5 @@
   </div>
 </div>
 </body>
-<script>
-  $(function() {
-    feather.replace({
-      class: '',
-      'stroke-width': 2,
-      stroke: '#657786',
-      width: 22,
-      height: 22
-    });
-  });
-
-  $('.headerMain__toggle').on('click', function() {
-    var linksElement = document.querySelector('.headerMain__links');
-    var navElement = document.querySelector('.headerNav');
-
-    if (linksElement.style.display == 'block') {
-      linksElement.style.display = 'none';
-      navElement.style.display = 'block';
-    } else {
-      navElement.style.display = 'none';
-      linksElement.style.display = 'block';
-    }
-  });
-</script>
+<%= javascript_include_tag 'header' %>
 </html>
