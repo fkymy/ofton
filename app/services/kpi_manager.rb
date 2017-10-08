@@ -11,17 +11,20 @@ class KpiManager
     }
 
     # Concerned Entities
+    users = User.all
     posts = Post.all
     comments = Comment.all
 
     # Calculate size in periods
     data_to_curate.keys.each do |key|
+      all_users = calculate_size(users, key)
       all_posts = calculate_size(posts, key)
       all_comments = calculate_size(comments, key)
       comments_per_post = all_posts == 0 ? 'NA' : (all_comments.to_f / all_posts).round(2)
 
+      data_to_curate[key]['all_users'] = all_users
       data_to_curate[key]['all_posts'] = all_posts
-      data_to_curate[key]['all_comments'] = comments_per_post
+      data_to_curate[key]['all_comments'] = all_comments
       data_to_curate[key]['comments_per_post'] = comments_per_post
     end
 
