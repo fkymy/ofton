@@ -6,13 +6,16 @@
       <div class="notification_wrapper">
         <div class="notification_header">
           <h2><%= @target.decorate.username %>の通知：
-            <%= link_to open_all_notifications_path_for(@target, @index_options), method: :post, remote: true do %>
-              <span class="notification_count">
-                <span class="<%= 'unopened' if @target.has_unopened_notifications?(@index_options) %>">
-                  <%= @target.unopened_notification_count(@index_options) %>
-                </span>
+            <span class="notification_count">
+              <span class="<%= 'unopened' if @target.has_unopened_notifications?(@index_options) %>">
+                <%= @target.unopened_notification_count(@index_options) %>
               </span>
-            <% end %>
+            </span>
+            <div class="notification_openall">
+              <%= link_to open_all_notifications_path_for(@target, @index_options), method: :post, remote: true do %>
+                <span class="btn btn--secondary">すべて既読にする</span>
+              <% end %>
+            </div>
           </h2>
         </div>
         <div class="notifications">
@@ -20,7 +23,6 @@
             <%= render_notification @notifications, fallback: :default_without_grouping, with_group_members: true %>
           <% else %>
             <%= render_notification @notifications, fallback: :default %>
-            <%#= render_notification @notifications, fallback: :text %>
           <% end %>
         </div>
       </div>
@@ -58,5 +60,12 @@
   }
   .notification_wrapper .notification_header h2 span span.unopened{
     background-color: #f87880;
+  }
+  .notification_openall {
+    margin-top: 3px;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    float: right;
   }
 </style>
