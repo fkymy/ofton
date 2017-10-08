@@ -98,4 +98,8 @@ RSpec.describe User, type: :model do
       expect(user).to have_many(:commented_posts)
     end
   end
+
+  describe "remember token" do
+    
+  end
 end

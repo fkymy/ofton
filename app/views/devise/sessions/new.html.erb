@@ -3,12 +3,23 @@
 <main id="main">
   <div class="row center-xs">
     <div class="col-xs-12 col-md-9 col-lg-6">
-      <%= render partial: 'shared/alpha', locals: { lede_text: 'おかえりなさい。'} %>
+      <%= render partial: 'shared/alpha', locals: { lede_text: 'おかえりなさい。(*^^*)'} %>
       <div class="userRegistration">
+        <div class="userRegistration__heading">
+          <h2>ログイン画面</h2>
+        </div>
+        <div class="userRegistration__link">
+          <%= link_to 'まだアカウントをお持ちでない方はこちら', new_registration_path(resource_name) %>
+        </div>
         <div class="userForm">
           <div class="userFormSection">
             <div class="userFormMessage danger">
-              <%= devise_error_messages! %>
+              <% if notice %>
+                <p class=""><%= notice %></p>
+              <% end %>
+              <% if alert %>
+                <p class=""><%= alert %></p>
+              <% end %>
             </div>
           </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -16,18 +27,10 @@
               <%= f.label :username %><br />
               <%= f.text_field :username, autofocus: true %>
             </div>
-
             <div class="field">
               <%= f.label :password %><br />
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
-
-            <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me, {:checked => true} %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end -%>
             <div class="form__submit">
               <%= f.button type: 'submit', :id => 'userFormBtn', :class => 'btn btn--primary' do %>
                 ログイン
@@ -35,13 +38,6 @@
             </div>
           <% end %>
         </div>
-        <!-- <div class="userDeviseLinks">
-          <div class="row start-xs">
-            <div class="col-xs-12">
-              <%= render "devise/shared/links" %>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>

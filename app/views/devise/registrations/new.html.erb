@@ -3,8 +3,14 @@
 <main id="main">
   <div class="row center-xs">
     <div class="col-xs-12 col-md-9 col-lg-6">
-      <%= render partial: 'shared/alpha', locals: { lede_text: 'これからよろしくね。'} %>
+      <%= render partial: 'shared/alpha', locals: { lede_text: 'かんたんな登録が必要です。これからよろしくね。'} %>
       <div class="userRegistration">
+        <div class="userRegistration__heading">
+          <h2>新規登録画面</h2>
+        </div>
+        <div class="userRegistration__link">
+          <%= link_to '既にアカウントをお持ちの方はこちら', new_session_path(resource_name) %>
+        </div>
         <div class="userForm">
           <div class="userFormSection">
             <div class="userFormMessage danger">

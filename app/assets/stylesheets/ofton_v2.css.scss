@@ -137,7 +137,6 @@ $screen-l: 1200px;
 .navMarginTop {
   height: $header-nav-height;
 }
-
 [id="footer"] {
   background-color: #fff;
   width: 100%;
@@ -264,6 +263,16 @@ $screen-l: 1200px;
   margin: auto;
   width: 30px;
   height: 30px;
+}
+
+.mainFlashMessage {
+  display: block;
+  color: #666;
+  background: white;
+  font-size: 0.875em;
+  margin-top: 10px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 .pageSection {
@@ -754,6 +763,18 @@ $screen-l: 1200px;
   margin: 20px;
 }
 
+.userRegistration__heading {
+  color: #666;
+  padding-bottom: 20px;
+}
+
+.userRegistration__link {
+  color: $color-primary;
+  font-size: 0.875em;
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+
 .userForm {
 }
 
@@ -910,6 +931,7 @@ $screen-l: 1200px;
   display: block;
   color: #666;
   font-size: 0.875em;
+  padding-bottom: 15px;
 }
 
 .userFormMessage.danger {
