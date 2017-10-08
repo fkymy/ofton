@@ -48,8 +48,9 @@
               </div>
               <div class="headerNav__item col-xs-4 col-md-3 col-lg-2" id='nav-<%= is_active_path?(user_notifications_path(current_user)) %>'>
                 <%= link_to user_notifications_path(current_user), :class => 'noSelect' do %>
-                  <div class="headerNav__icon">
+                  <div class="headerNav__icon popupContainer">
                     <i data-feather="heart"></i>
+                    <% if @popup %><span class="headerNav__popup"></span><% end %>
                   </div>
                 <% end %>
               </div>

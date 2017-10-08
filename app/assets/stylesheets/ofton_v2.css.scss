@@ -225,6 +225,23 @@ $screen-l: 1200px;
   padding-top: 0.75rem;
 }
 
+.headerNav__icon.popupContainer {
+  position: relative;
+}
+
+.headerNav__popup {
+  color: #f98a7e;
+  display: block;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 40%;
+  left: 62%;
+  border-radius: 50%;
+  background-color: #f87880;
+  z-index: 2;
+}
+
 #floationgContainer {
   position:fixed;
   width: 4rem;

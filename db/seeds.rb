@@ -33,3 +33,8 @@ Comment.create(post_id: 2, author: 'yushi', body: 'test comment', user_id: 1)
 Comment.create(post_id: 3, author: 'yushi', body: 'test comment', user_id: 1)
 
 Admin.create(email: 'test@example.com', password: 'testtest', name: 'test_admin')
+
+User.create(username: 'test', password: 'testtest')
+User.create(username: 'test2', password: 'testtest')
+User.create(username: 'test3', password: 'testtest')
+User.create(username: 'test4', password: 'testtest')
