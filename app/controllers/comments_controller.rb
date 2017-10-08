@@ -5,9 +5,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
-
     @comment.body = helpers.simple_nkf(comment_params[:body])
-    @comment.generated_by = admin_signed_in? ? 'admin' : 'user'
 
     if @comment.save
       ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user)

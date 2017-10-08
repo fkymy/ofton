@@ -33,6 +33,12 @@ class User < ApplicationRecord
   # with parameters as value or custom methods defined in your model as lambda or symbol.
   # This is an example without any options (default configuration) as the target.
   acts_as_notification_target
+
+  # override remember_me to enable by default
+  def remember_me
+    # (super == nil) ? '1' : super
+    true
+  end
 end
 
 # == Schema Information

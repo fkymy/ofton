@@ -21,7 +21,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.body = helpers.simple_nkf(post_params[:body])
-    @post.generated_by = admin_signed_in? ? 'admin' : 'user'
 
     if @post.save
       Slack::PostCreatedNotifier.notify(
