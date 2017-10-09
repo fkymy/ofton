@@ -5,7 +5,7 @@
 </script>
 
 <%= form_for(@post) do |f| %>
-  <div class="postForm">
+  <div class="postForm animated fadeInUp test-animation">
     <div class="row center-xs">
       <div class="col-xs-12">
         <div class="postFormHeader">
@@ -49,3 +49,13 @@
 <script>
   autosize(document.querySelectorAll('textarea'));
 </script>
+<style>
+  .test-animation{
+    /* ５秒かけてアニメーションする */
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    /* 4秒待ってからアニメーションする */
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
+</style>
