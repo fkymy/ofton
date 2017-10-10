@@ -20,9 +20,9 @@ class PostsController < ApplicationController
     @post.body = helpers.simple_nkf(post_params[:body])
 
     if @post.save
-      # Slack::PostCreatedNotifier.notify(
-      #   Slack::Template::PostCreatedMessage.format(@post)
-      # ) unless admin_signed_in?
+      Slack::PostCreatedNotifier.notify(
+        Slack::Template::PostCreatedMessage.format(@post)
+      ) unless admin_signed_in?
 
       redirect_to @post
     else
