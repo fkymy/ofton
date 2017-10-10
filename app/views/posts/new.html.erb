@@ -5,7 +5,7 @@
 </script>
 
 <%= form_for(@post) do |f| %>
-  <div class="postForm">
+  <div class="postForm animated fadeInUp test-animation">
     <div class="row center-xs">
       <div class="col-xs-12">
         <div class="postFormHeader">
@@ -19,7 +19,7 @@
             </div>
             <div class="col-xs-3 col-sm-2 col-md-1 postFormHeader__itemWrapper">
               <div class="postFormHeader__item">
-                <%= f.button type: 'submit', :class => 'btn btn--primary postForm__submit' do %>
+                <%= f.button type: 'submit', class: 'btn btn--primary postForm__submit', data: { disable_with: "..."}  do %>
                   投稿
                 <% end %>
               </div>
@@ -49,3 +49,13 @@
 <script>
   autosize(document.querySelectorAll('textarea'));
 </script>
+<style>
+  .test-animation{
+    /* ５秒かけてアニメーションする */
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    /* 4秒待ってからアニメーションする */
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
+</style>
