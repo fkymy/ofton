@@ -19,7 +19,7 @@
             </div>
             <div class="col-xs-3 col-sm-2 col-md-1 postFormHeader__itemWrapper">
               <div class="postFormHeader__item">
-                <%= f.button type: 'submit', :class => 'btn btn--primary postForm__submit' do %>
+                <%= f.button type: 'submit', class: 'btn btn--primary postForm__submit', data: { disable_with: "..."}  do %>
                   投稿
                 <% end %>
               </div>

@@ -10,7 +10,7 @@
         <div class="commentForm__item">
           <div class="commentForm__submit">
             <div id="btn-commentForm__submit" class="btn btn--primary">
-              <%= f.button type: 'submit' do %>
+              <%= f.button type: 'submit', data: { disable_with: "..."} do %>
                 <%= image_tag('feather-message-circle.svg', :alt => "header burger") %>
               <% end %>
             </div>

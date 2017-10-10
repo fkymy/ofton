@@ -10,9 +10,9 @@ class CommentsController < ApplicationController
     if @comment.save
       ActivityNotification::Notification.notify(:users, @comment, notifier: @comment.user, group: @comment.post)
 
-      Slack::CommentCreatedNotifier.notify(
-        Slack::Template::CommentCreatedMessage.format(@comment)
-      ) unless admin_signed_in?
+      # Slack::CommentCreatedNotifier.notify(
+      #   Slack::Template::CommentCreatedMessage.format(@comment)
+      # ) unless admin_signed_in?
 
       redirect_to post_path(@post)
     else
