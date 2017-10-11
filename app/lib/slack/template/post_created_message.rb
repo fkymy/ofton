@@ -31,7 +31,7 @@ module Slack
       private
 
       def text
-        "author:\n#{@post.author}\n\nbody:\n#{@post.body}"
+        "user: #{@post.user.username}さん\n\n#{@post.body}"
       end
     end
   end
