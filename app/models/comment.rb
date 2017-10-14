@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :post, touch: true
-  belongs_to :user
+  belongs_to :user, touch: true
 
   # has_enumeration_for :generated_by, with: CommentGeneratedBy, create_helpers: { prefix: true }
 
