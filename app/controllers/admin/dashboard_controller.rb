@@ -52,9 +52,16 @@ class Admin::DashboardController < ApplicationController
 
     # # Posts by New users
     posts_a = []
+    r_posts_a = []
+    r_comments_a = []
     new_users.each do |new_user|
       posts = new_user.posts.pluck(:id)
       commented_posts = new_user.commented_posts.pluck(:id)
+
+      # for ratio
+      r_posts_a = r_posts_a + posts
+      r_comments_a = r_comments_a + commented_posts
+
       actions = posts + commented_posts
       posts_a = posts_a + actions.uniq
     end
@@ -62,11 +69,12 @@ class Admin::DashboardController < ApplicationController
     @uniq_posts = posts_a.uniq.size
 
     # # CommentedPosts by new users
-    @comments = @all_posts - @uniq_posts
+    @comments = r_comments_a.size
 
     # % Posts and CommentedPosts / # ""
-    @posts_ratio = @all_posts == 0 ? 0 : @uniq_posts / @all_posts.to_f
-    @comments_ratio = @all_posts == 0 ? 0 : @comments / @all_posts.to_f
+    r_all = r_posts_a.size + r_comments_a.size
+    @posts_ratio = r_all == 0 ? 0 : r_posts_a.size / r_all.to_f
+    @comments_ratio = r_all == 0 ? 0 : r_comments_a.size / r_all.to_f
 
     # # Posts and CommentedPosts with more than two contributers including the User
     mm_a = []
