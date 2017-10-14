@@ -290,6 +290,8 @@ $screen-l: 1200px;
   margin-top: 10px;
   padding: 5px;
   font-weight: bold;
+  border-top: 1px solid $color-main-border;
+  border-bottom: 1px solid $color-main-border;
 }
 
 .pageSection {
