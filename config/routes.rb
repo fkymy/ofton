@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboard#index'
+    post 'metrics', to: 'dashboard#save_metrics'
 
     resources :admins, only: [:index]
     resources :posts, only: [:index, :show]

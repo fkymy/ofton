@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002134237) do
+ActiveRecord::Schema.define(version: 20171014094117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(version: 20171002134237) do
     t.bigint "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "metrics", force: :cascade do |t|
+    t.integer "allu"
+    t.integer "mau"
+    t.integer "wau"
+    t.integer "biau"
+    t.integer "dau"
+    t.integer "weekly_new_users"
+    t.integer "weekly_new_all_posts"
+    t.integer "weekly_new_uniq_posts"
+    t.integer "weekly_new_all_comments"
+    t.float "weekly_new_posts_ratio"
+    t.float "weekly_new_comments_ratio"
+    t.integer "weekly_new_all_conv"
+    t.integer "weekly_new_uniq_conv"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
