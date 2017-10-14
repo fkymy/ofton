@@ -55,7 +55,7 @@ class Admin::DashboardController < ApplicationController
     new_users.each do |new_user|
       posts = new_user.posts.pluck(:id)
       commented_posts = new_user.commented_posts.pluck(:id)
-      posts_a = posts_a + posts + commented_posts
+      posts_a = posts_a + (posts + commented_posts).uniq
     end
     @all_posts = posts_a.size
     @uniq_posts = posts_a.uniq.size
