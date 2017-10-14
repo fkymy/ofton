@@ -55,7 +55,8 @@ class Admin::DashboardController < ApplicationController
     new_users.each do |new_user|
       posts = new_user.posts.pluck(:id)
       commented_posts = new_user.commented_posts.pluck(:id)
-      posts_a = posts_a + (posts + commented_posts).uniq
+      actions = posts + commented_posts
+      posts_a = posts_a + actions.uniq
     end
     @all_posts = posts_a.size
     @uniq_posts = posts_a.uniq.size
@@ -70,14 +71,16 @@ class Admin::DashboardController < ApplicationController
     # # Posts and CommentedPosts with more than two contributers including the User
     mm_a = []
     new_users.each do |new_user|
+      user_convs = []
       commented_posts = new_user.commented_posts
       if commented_posts.present?
         commented_posts.each do |post|
           if post.commented_users.size >= 2
-            mm_a << post.id
+            user_convs << post.id
           end
         end
       end
+      mm_a = mm_a + user_convs.uniq
     end
     @mm = mm_a.size
     @uniq_mm = mm_a.uniq.size
