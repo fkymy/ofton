@@ -1,21 +1,39 @@
 <% content_for :notification_content, flush: true do %>
   <div class='notification_list <%= notification.opened? ? "opened" : "unopened" %>'>
     <div class="notification_list_cover"></div>
-    <div class="list_image">
-      <%= image_tag(notification.notifier.present? ? notification.notifier.decorate.avatar : 'animals/bear-square.svg', :alt => "user icon") %>
-    </div>
-    <div class="list_text_wrapper">
-      <p class="list_text">
-        <strong><%= notification.notifier.present? ? notification.notifier.decorate.username : 'どなたか' %></strong>
-        <% if notification.group_member_notifier_exists? %>
-          <%= " と他 #{notification.group_member_notifier_count} " %>
-          <%= notification.notifier.present? ? notification.notifier.printable_type.pluralize.downcase : '人' %>
-        <% end %>
-        からコメントがありました。
-        <%= "投稿：#{notification.group.decorate.truncated_body}" if notification.group.present? %><br>
-        <span><%= notification.created_at.strftime("%m月%d日 %H:%M") %></span>
-      </p>
-    </div>
+    <% if notification.notifiable_type == "Bulletin" %>
+      <div class="list_image">
+        <%= image_tag('ofton-admin.png', :class => "ofton-admin-png", :alt => "ofton admin icon") %>
+      </div>
+      <div class="list_text_wrapper">
+        <p class="list_text">
+          <strong>
+            <%= notification.target.present? ? "#{notification.target.decorate.username}へ" : '' %>
+            oftonからのお知らせがあります。ぜひご覧になってください。
+          </strong>
+          <% if notification.notifiable.present? %>
+            <%= "#{notification.notifiable.decorate.truncated_body}" %>
+          <% end %>
+          <span><%= notification.created_at.strftime("%m月%d日 %H:%M") %></span>
+        </p>
+      </div>
+    <% else %>
+      <div class="list_image">
+        <%= image_tag(notification.notifier.present? ? notification.notifier.decorate.avatar : 'animals/bear-square.svg', :alt => "user icon") %>
+      </div>
+      <div class="list_text_wrapper">
+        <p class="list_text">
+          <strong><%= notification.notifier.present? ? notification.notifier.decorate.username : 'どなたか' %></strong>
+          <% if notification.group_member_notifier_exists? %>
+            <%= " と他 #{notification.group_member_notifier_count} " %>
+            <%= notification.notifier.present? ? notification.notifier.printable_type.pluralize.downcase : '人' %>
+          <% end %>
+          からコメントがありました。
+          <%= "投稿：#{notification.group.decorate.truncated_body}" if notification.group.present? %><br>
+          <span><%= notification.created_at.strftime("%m月%d日 %H:%M") %></span>
+        </p>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
@@ -144,5 +162,9 @@
   .notification_list .list_text_wrapper .list_text span {
     color: #979797;
     font-size: 13px;
+  }
+  .ofton-admin-png {
+    width: 40px;
+    height: 40px;
   }
 </style>

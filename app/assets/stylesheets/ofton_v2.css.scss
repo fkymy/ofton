@@ -1133,7 +1133,7 @@ ul.thumbnails.image_picker_selector
 // static page
 .staticPage {
   background-color: white;
-  padding: 15px;
+  padding: 20px;
   color: #666;
   font-size: 16px;
   line-height: 1.4em;
@@ -1167,4 +1167,23 @@ ul.thumbnails.image_picker_selector
   > section {
     margin-top: 20px;
   }
+}
+
+// bulletin
+.bulletinPage {
+  background-color: white;
+  padding: 20px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.4em;
+  text-align: left;
+}
+.bulletinPage a {
+  color: $color-primary;
+}
+.bulletinPage a:hover {
+  text-decoration: underline;
+}
+.bulletinPage a:active {
+  text-decoration: underline;
 }
