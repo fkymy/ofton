@@ -21,7 +21,7 @@
                 </div>
                 <div class="postContent__body">
                   <%= link_to post_path(post), class: 'noSelect' do %>
-                    <p><%= simple_format(hbr(post.body)) %></p>
+                    <p><%= auto_link(simple_format(hbr(post.body))) %></p>
                   <% end %>
                 </div>
                 <div class="postContent__commentsCount">

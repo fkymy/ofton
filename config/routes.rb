@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
+  resources :bulletins, only: [:show]
 
   namespace :admin do
     root 'dashboard#index'
@@ -39,5 +40,6 @@ Rails.application.routes.draw do
 
     resources :admins, only: [:index]
     resources :posts, only: [:index, :show]
+    resources :bulletins, only: [:index, :new, :create]
   end
 end
