@@ -1,0 +1,13 @@
+<%= render partial: 'shared/margin_top' %>
+
+<main id="main">
+  <div class="row center-xs">
+    <div class="col-xs-12 col-md-9 col-lg-6">
+      <div class="bulletinPage">
+        <section>
+          <%= auto_link(simple_format(hbr(@bulletin.body))) %>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

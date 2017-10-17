@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      bulletin: "ヒアリング"
+    attributes:
+      bulletin:
+        body: "本文"
