@@ -63,6 +63,7 @@ gem 'newrelic_rpm'
 gem 'jquery-infinite-pages'
 gem 'activity_notification'
 gem 'rails_autolink'
+gem 'meta-tags'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
