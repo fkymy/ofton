@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ofton | 寂しいがなくなるコミュニテイ</title>
+  <title>oftonクラブ | 寂しいがなくなるコミュニテイ</title>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag asset_path('favicon.ico') %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <% if Rails.env.production? %><%= render 'shared/scripts/google_analytics' %><% end %>
 </head>

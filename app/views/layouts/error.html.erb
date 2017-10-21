@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-scale=1.0, maximum-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!-- <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" /> -->
+  <%= favicon_link_tag asset_path('favicon.ico') %>
   <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
 
   <% if Rails.env.production? %>
