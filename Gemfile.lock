@@ -171,6 +171,8 @@ GEM
     lumberjack (1.0.12)
     mail (2.6.5)
       mime-types (>= 1.16, < 4)
+    meta-tags (2.6.0)
+      actionpack (>= 3.2.0, < 5.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -362,6 +364,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)
+  meta-tags
   newrelic_rpm
   pg
   poltergeist
